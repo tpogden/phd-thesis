@@ -1,0 +1,116 @@
+\ProvidesPackage{thesis.sty}	%Style file contains packages required for making thesis
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Layout and formatting
+\usepackage{rotating,lscape}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+%Maths
+\usepackage{amsfonts,mathbbol,mathrsfs,amsmath,amssymb,bm,latexsym} 
+\usepackage{euscript} %Alternative to mathcal
+
+%Fonts
+\usepackage{textcomp} %Symbols http://home.online.no/~pjacklam/latex/textcomp.pdf
+\usepackage[sc]{mathpazo}
+
+%Citation and bibliography and index
+\usepackage[nottoc]{tocbibind}	%Add bibliography/index to table of contents % TPO Added nottoc
+\usepackage{makeidx}								%Creates index
+\usepackage[intoc,prefix]{nomencl} %Symbol List http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/nomencl.pdf
+\usepackage{tocvsec2}	%Control section numbering http://www.tex.ac.uk/tex-archive/macros/latex/contrib/tocvsec2/tocvsec2.pdf
+\usepackage{ifthen}		%Required for tocvsec2
+
+%Tables
+\usepackage{colortbl}
+\usepackage{multirow}
+
+%Figures 
+\usepackage{graphicx}	%Include graphics
+\usepackage{caption} 	%Customise caption: http://www.dd.chalmers.se/latex/Docs/PDF/caption.pdf
+\usepackage{sidecap}	%Place caption at side of figure: ftp://ctan.tug.org/tex-archive/macros/latex/contrib/sidecap/sidecap.pdf
+\usepackage{subfigure} 	%Subfigure ftp://ctan.tug.org/tex-archive/macros/latex/contrib/sidecap/sidecap.pdf
+\usepackage{wrapfig}	%Wrap text round figure http://www.andy-roberts.net/misc/latex/latextutorial6.html
+
+%Hyperlinks
+%\usepackage{hyperref} %http://www.tug.org/applications/hyperref/ftp/doc/manual.pdf
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,
+            linkcolor=BrickRed,
+            urlcolor=NavyBlue,
+            citecolor=NavyBlue]{hyperref}
+\usepackage{url}		%
+
+\usepackage{verbatim}	%Allows comments
+
+%%%%%%%%%%%%%%%%%%%%%%%% TEXT SHORTCUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mrm}{\mathrm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LATIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ie}{\textit{i.e. }} %% That is "id est"
+\newcommand{\eg}{\textit{e.g. }} %% For the sake of argument "exempli gratia"
+\newcommand{\etc}{\textit{etc. }} %% And so on "et cetera"
+\newcommand{\etal}{\textit{et al. }} %% And others "et alia"
+\newcommand{\ibid}{\textit{ibid. }} %% The same place "ibidem"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TEXTBOX %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tbox}[1]{\hspace{\stretch{1}}\framebox[1.1\width][c]{\raisebox{0pt}[1.1\height][0.1\height]{#1}}\hspace{\stretch{1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLE FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\tempwidth}
+\newlength{\tempwidthI}
+\newlength{\tablewidth}
+\setlength{\tablewidth}{14cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Nomenclature formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\nomgroup}[1]{
+\ifthenelse{\equal{#1}{A}}{\newpage\section*{List of Abbreviations}\addcontentsline{toc}{section}{List of Abbreviations}}{
+\ifthenelse{\equal{#1}{C}}{\newpage\section*{List of Constants}\addcontentsline{toc}{section}{List of Constants}}{%
+\ifthenelse{\equal{#1}{F}}{\newpage\section*{List of Conversion Factors}\addcontentsline{toc}{section}{List of Conversion Factors}}{\ifthenelse{\equal{#1}{V}}{\newpage\section*{List of Variables}\addcontentsline{toc}{section}{List of Variables}}{{\ifthenelse{\equal{#1}{W}}{\newpage\section*{List of Products}\addcontentsline{toc}{section}{List of Products}}{{\ifthenelse{\equal{#1}{X}}{\newpage\section*{List of Suppliers}\addcontentsline{toc}{section}{List of Suppliers}}{}}}}}}}}}
+
+\newlength{\nomunit}
+\newcommand{\nomconst}[2]{%
+\renewcommand{\nomentryend}{\settowidth{\nomunit}{#2}\hspace{%
+\fill}#1 \textbf{#2}\hspace*{-\nomunit}\hspace*{1.5cm}\hspace{0cm}}}%%Why this last \hspace{0cm} is required is a mystery!
+\newcommand{\nomconv}[2]{%
+\renewcommand{\nomentryend}{\settowidth{\nomunit}{#2}\hspace{%
+\fill}#1\hspace{1cm}\textbf{#2}\hspace*{-\nomunit}\hspace*{2cm}\hspace{0cm}}}%%Why this last \hspace{0cm} is required is a mystery!
+\newcommand{\nomvar}[1]{%
+\renewcommand{\nomentryend}{\hspace{\fill}\textbf{#1}\hspace*{2.5cm}\hspace{0cm}}}%%Why this last \hspace{0cm} is required is a mystery!
+\newcommand{\nomprod}[1]{%
+\renewcommand{\nomentryend}{\settowidth{\nomunit}{#1}\hspace{%
+\fill}\hspace{1cm}#1\hspace*{-\nomunit}\hspace*{6cm}\hspace{0cm}}}%%Why this last \hspace{0cm} is required is a mystery!
+\newcommand{\nomco}[1]{%
+\renewcommand{\nomentryend}{\settowidth{\nomunit}{#1}\hspace{%
+\fill}\hspace{1cm}#1\hspace*{-\nomunit}\hspace*{6cm}\hspace{0cm}}}%%Why this last \hspace{0cm} is required is a mystery!
+\renewcommand{\nomname}{Nomenclature}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Equation Shortcuts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ioverisat}{$\left(\frac{I}{I_{\textrm{S}}}\right)$}
+
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\dd}{\mathrm{d}}
+
+\newcommand{\hc}{\mathrm{h.c.}}
+\newcommand{\cc}{\mathrm{c.c.}}
+\newcommand{\fig}[1]{\textsc{Fig.} #1}
+
+\newcommand{\divv}[1]{\nabla \cdot #1}
+\newcommand{\curl}[1]{\nabla \times #1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COLORS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{DurhamBlack}{rgb}{0.137254902, 0.121568627, 0.125490196}
+\definecolor{DurhamPurple}{rgb}{0.494117647, 0.192156863, 0.482352941}
+\definecolor{DurhamLilac}{rgb}{0.847058824, 0.674509804, 0.956862745}
+\definecolor{DurhamDarkBlue}{rgb}{0, 0.388235294, 0.533333333}
+\definecolor{DurhamRed}{rgb}{0.666666667, 0.168627451, 0.290196078}
+\definecolor{DurhamLightGrey}{rgb}{0.811764706, 0.854901961, 0.819607843}
+\definecolor{DurhamLightBlue}{rgb}{0.768627451, 0.898039216, 0.980392157}
+\definecolor{DurhamGold}{rgb}{0.623529412, 0.631372549, 0.380392157}
+\definecolor{DurhamYellow}{rgb}{0.909803922, 0.890196078, 0.568627451}
+\definecolor{DurhamPink}{rgb}{0.768627451, 0.231372549, 0.556862745}
+\definecolor{DurhamAqua}{rgb}{0.568627451, 0.721568627, 0.741176471}
+\definecolor{DurhamDarkGrey}{rgb}{0.588235294, 0.556862745, 0.521568627} 
