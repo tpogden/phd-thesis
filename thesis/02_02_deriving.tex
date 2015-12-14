@@ -1,2 +1,215 @@
-\section{Deriving Propagation Equations}
+\section{Deriving the Propagation Equation}
   \label{sec:propagation_deriving}
+
+    In this section we will derive an equation to describe the propagation of a
+    classical elecromagnetic field in a polarised medium. Our starting point,
+    naturally, is Maxwell's set of equations of classical electrodynamics.
+
+  \subsection{Maxwell's Equations and the Wave Equation}
+
+    In a medium with no free charges or free current, Maxwell's equations for
+    the electric field $\mathbf{E}$ and the magnetic field $\mathbf{B}$ can be
+    written\cite{jackson1998classical}
+    \begin{subequations}
+      \begin{align}
+        \divv{\mathbf{D}} &= 0 \\
+        \divv{\mathbf{B}} &= 0 \\
+        \curl{\mathbf{E}} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+        \curl{\mathbf{B}} &= \mu_0 \frac{\partial \mathbf{D}}{\partial t}.
+      \end{align}
+      \label{eqn:maxwells}
+    \end{subequations}
+    The electric displacement $\mathbf{D}$ accounts for the effect of charges in
+    a medium and is given by 
+    \begin{equation}\label{eqn:elec_displacement}
+      \mathbf{D} = \varepsilon_0 \mathbf{E} + \mathbf{P}
+    \end{equation}
+    where $\varepsilon_0$ is the vacuum permittivity and the electric
+    polarisation $\mathbf{P}$ describes the cumulative effect of induced dipole
+    moments in individual atoms. We'll discuss the source of polarisation in
+    atoms further in section \ref{sec:propagation_susc}.
+
+    Taking the curl of (\ref{eqn:maxwells}c) and substituting 
+    (\ref{eqn:maxwells}d) we find 
+    $$
+      \curl{(\curl{\mathbf{E}})} = 
+      -\mu_0 \frac{\partial \mathbf{D}^2}{\partial t^2}.
+    $$
+    We then apply the vector identity
+    $$
+      \curl{(\curl{\mathbf{E}})} = 
+        \nabla(\divv{\mathbf{E}}) - \nabla^2 \mathbf{E}
+    $$
+    and, assuming that the polarisation varies little in the plane transverse to
+    propagation such that $\divv{\mathbf{P}} \approx 0$, arrive at the Maxwell
+    wave equation
+    \begin{equation}
+      \mathbf{\nabla}^2 \mathbf{E} - \frac{1}{c^2} 
+      \frac{\partial^2\mathbf{E}}{\partial t^2} = 
+      \mu_0 \frac{\partial^2\mathbf{P}}{\partial t^2}.
+    \label{eqn:mwe}
+    \end{equation}
+
+    The Maxwell wave equation (\textsc{mwe}) thus describes the wave-like
+    propagation of an electric field $\mathbf{E}$ through a medium with
+    polarisation $\mathbf{P}$. The second derivative on the right-hand side
+    tells us that the accelerating charges described by $\mathbf{P}$ can act as
+    a source of new components of the electromagnetic field. For this reason,
+    polarisation plays a critical role in practically all optical
+    phenomena.\cite{boyd2008nonlinear}
+
+    A similar propagation equation to (\ref{eqn:mwe}) may be derived for the
+    magnetic field, however we'll find that the interaction of atoms with the
+    electric field dominates and so we will not consider $\mathbf{B}$ further.
+
+    We will consider \textsc{1d} propagation along the z-axis, a restriction
+    well-justified by the deconstructive interference of light scattered by
+    atomic dipoles in directions not aligned with the incident
+    radiation\cite{hecht2015optics}. Then we might write the transverse field as
+    $\mathbf{E} = \hat{\mathbf{x}} E(z, t)$, where $\hat{\mathbf{x}}$ is a unit
+    vector perpendicular to $z$. We assume that we are dealing with atoms that
+    are electrically neutral to start with, such that all of the polarisation in
+    the medium will be induced by that field, so we may similarly set
+    $\mathbf{P} = \hat{\mathbf{x}} P(z, t)$. In this way we can reduce the
+    \textsc{mwe} to the scalar form
+    \begin{equation}
+      \frac{\partial^2 E}{\partial z^2} - \frac{1}{c^2} \frac{\partial^2
+        E}{\partial t^2} =    \mu_0 \frac{\partial^2 P}{\partial t^2}.
+      \label{eqn:mwe_scalar} 
+    \end{equation}
+
+    In the absence of sources (i.e. $P = 0$) we can solve the homogeneous
+    equation (\ref{eqn:mwe_scalar}) analytically. For a nonconducting medium
+    with spatially constant permeability and susceptibility the solution is a
+    transverse monochromatic plane wave\cite{jackson1998classical}
+    \begin{equation}
+      \tilde{E}(z,t) = \tilde{E}_0 \mathrm{e}^{\mathrm{i}(k z - \omega t)}.
+      \label{eqn:plane_waves}
+    \end{equation}
+
+    where as usual $k$ represents wavenumber and $\omega$ the angular frequency.
+    The amplitude is given by $\tilde{E}_0$. Of course, the electric field is an
+    observable physical quantity and so must be real-valued --- it is the real
+    part of the complex $\tilde{E}(z,t)$ given by
+    \begin{equation}
+      E(z,t) = \Re[\tilde{E}(z,t)] = \tfrac{1}{2} \tilde{E}_0(z,t) 
+                    \mathrm{e}^{\mathrm{i}(k z - \omega t)} 
+                + \tfrac{1}{2} \tilde{E}_0^*(z,t) 
+                    \mathrm{e}^{-\mathrm{i}(k z - \omega t)}.
+    \end{equation}
+
+    We continue with the complex notation for the usual reason that
+    manipulations, such as adding components of different phases, are much
+    simpler.
+
+    By substituting (\ref{eqn:plane_waves}) into (\ref{eqn:mwe_scalar}) we
+    obtain the simplest \textit{dispersion relation} of $\omega = c k$, \ie all
+    frequencies travel at a speed $c$, a familiar result for light in vacuo.
+    Such plane wave solutions will propagate without attenuation or dispersion,
+    which is how we are able to look up at the night sky and observe light from
+    distant stars that has travelled enormous distance through the void of
+    interstellar space.
+
+    Light travelling through matter is a more complex problem. We next want to
+    look for solutions to (\ref{eqn:mwe_scalar}) in the presence of sources,
+    such that we have $P \ne 0$ describing induced atomic dipoles in the medium.
+    For that we will need to make a useful approximation.
+
+  \subsection{The Slowly Varying Envelope Approximation}
+
+    If the spectrum of the electric field is narrowband, we approximate the
+    field as the product of a quasi-monochromatic \textit{carrier} function with
+    angular frequency $\omega$ and wavenumber $k$ and a \textit{slowly-varying
+    envelope}
+    \begin{equation}
+      E(z,t) = \tfrac{1}{2} \mathcal{E}(z,t) 
+                    \mathrm{e}^{\mathrm{i}(k z - \omega t)} 
+                + \tfrac{1}{2} \mathcal{E}^*(z,t) 
+                    \mathrm{e}^{-\mathrm{i}(k z - \omega t)}
+    \end{equation}
+    where the envelope is in general a complex function 
+    \begin{equation}
+      \mathcal{E}(z,t) = \lvert \mathcal{E} \rvert 
+                            \mathrm{e}^{\mathrm{i} \varphi}.
+    \end{equation}
+    
+    We apply the same treatment to the polarisation
+    \begin{equation}
+      P(z,t) = \tfrac{1}{2} \mathcal{P}(z,t) 
+                    \mathrm{e}^{\mathrm{i}(k z - \omega t)} 
+                + \tfrac{1}{2} \mathcal{P}^*(z,t) 
+                    \mathrm{e}^{-\mathrm{i}(k z - \omega t)}
+    \end{equation}
+    with a polarisation envelope
+    \begin{equation}
+      \mathcal{P}(z,t) = \lvert \mathcal{P} \rvert 
+                            \mathrm{e}^{\mathrm{i} \varphi}.
+    \end{equation}
+
+    We can substitute these into (\ref{eqn:mwe_scalar}) and by matching
+    co-rotating terms we find
+    \begin{equation}
+    \left[ ( \partial_{zz} + 2 \mathrm{i} k \partial_{z} - k^2 ) - 
+      \tfrac{1}{c^2} (\partial_{tt} - 
+      2 \mathrm{i} \omega \partial_{t} - \omega^2 ) \right] \mathcal{E} = 
+      \mu_0 (\partial_{tt} - 2 \mathrm{i} \omega \partial_{t} - 
+      \omega^2) \mathcal{P}.
+    \label{eqn:pre_svea}
+    \end{equation}
+
+    Now we're set to make the \textit{slowly-varying envelope
+    approximation}.\cite{lambropoulos2007fundamentals} If the envelope changes
+    only a small amount over the distance of a wavelength, and over the duration
+    of the optical period, we can take
+    \begin{align*}
+    \lvert \partial_{zz} \mathcal{E} \rvert &\ll k \lvert \partial_{z} 
+        \mathcal{E} \rvert\\
+    \lvert \partial_{tt} \mathcal{E} \rvert &\ll \omega \lvert \partial_{t} 
+        \mathcal{E} \rvert
+    \end{align*}
+    and neglect the second derivatives. Similar approximations hold for
+    $\mathcal{P}$, where we may also neglect the first-order time derivative
+    \begin{align*}
+      \lvert \partial_{zz} \mathcal{P} \rvert &\ll 
+        k \lvert \partial_{z} \mathcal{P} \rvert \\
+      \lvert \partial_{tt} \mathcal{E} \rvert &\ll 
+        \omega \lvert \partial_{t} \mathcal{E} \rvert \\
+      \lvert \partial_{t} \mathcal{P} \rvert &\ll 
+        \omega \lvert \mathcal{P} \rvert.
+    \end{align*}
+    In the case of visible light with wavelengths on the order of 100 nm and
+    optical periods of the order of 1 fs, where we're interested in the
+    behaviour over \unit{ns} or \unit{$\mu$s}, this approximation is justified.
+
+    With these approximations made, (\ref{eqn:pre_svea}) becomes
+    \begin{equation}
+      \left[ 2 \mathrm{i} k \partial_z - k^2 + \tfrac{1}{c^2} 
+      (2 \mathrm{i} \omega \partial_t + \omega^2 ) \right] \mathcal{E} = 
+      -\mu_0 \omega^2 \mathcal{P}
+    \end{equation}
+    As the carrier wavenumber and frequency are still related by the vacuum
+    dispersion relation $\omega = c k$ we then obtain the first-order
+    propagation equation
+    \begin{equation}\label{eqn:fo_mwe}
+      \left[ \frac{\partial}{\partial z} + \frac{1}{c} 
+      \frac{\partial}{\partial t} \right] \mathcal{E} = 
+      \mathrm{i} \frac{k}{2 \epsilon_0} \mathcal{P}.
+    \end{equation}
+
+    The wave equation (\ref{eqn:fo_mwe}), first-order in space $z$ and time
+    $t$, can be solved numerically for a given medium, to determine how light
+    will propagate through it. But we will next need to determine how the media
+    through $\mathcal{P}$ is itself  affected by the field $\mathcal{E}$.
+
+  \subsection{Energy and Intensity}
+
+    In an experiment we will not be measuring the electric field directly, but
+    the energy transferred to a detector such as a photon counter. Also, any
+    macroscopic measurement of light is necessarily going to extend over many
+    optical cycles (of duration $\sim\!\unit[10^{-15}]{s}$). So a property
+    useful to us is the time-averaged power per unit area that the
+    electromagnetic field transports through the medium, which we call the
+    intensity $I$ and is calculated to be\cite{griffiths1999introduction}
+    \begin{equation}\label{eqn:intensity}
+      I = \tfrac{1}{2}c\varepsilon_0 \lvert \mathcal{E}^2 \rvert.
+    \end{equation}
