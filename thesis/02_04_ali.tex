@@ -1,0 +1,293 @@
+\section{Interaction of Light with Atoms}
+  \label{sec:propagation_ali}
+
+  We have seen in the weak field regime how the linear susceptibility relates to
+  the absorptive and dispersive response of the medium. But we have not yet
+  determined how that susceptibility relates to the properties of the atomic
+  ensemble. Beyond the linear regime, the susceptibility is not a good
+  descriptor for the response of the medium, and analytic expressions for the
+  field propagation are not available. In the nonlinear regime, we will need to
+  follow the dynamics of the atoms to determine how the field will propagate
+  through the medium.
+
+  For the dynamics of atom-light interaction to be properly considered the
+  system must be treated as an open quantum system. While the processes of
+  absorption and stimulated emission (of photons from and to the applied field)
+  can be described within a closed quantum system, the process of spontaneous
+  decay due to interaction with vacuum fluctuations surrounding an atom cannot.
+  As such, the time evolution is described by the Lindblad master equation
+    \begin{equation}\label{eqn:lindblad}
+      \ii \hbar \frac{\partial \rho}{\partial t} = [\mathcal{H}, \rho] + 
+        \mathcal{L}\left\{ \rho \right\}.
+    \end{equation}
+  The background of this equation and the conditions under which it is valid are
+  discussed in appendix \ref{apx:qu_dyn}. It constitutes a set of differential
+  equations to be solved: one for each of the density matrix elements.
+
+  \subsection{Spontaneous Decay of Excited States}
+
+    As described in equation (\ref{eqn:lindblad_op}), coupling to the
+    environment is implemented via the Lindblad superoperator $\mathcal{L}$
+    which is completely defined by a finite set of collapse operators. In the
+    case of spontaneous emission due to interaction with vacuum fluctuations,
+    these are defined as
+    \begin{equation}
+      C_{ij} = \sqrt{\Gamma_{ij}} \Ket{i} \Bra{j}.
+    \end{equation}
+    where $\Gamma_{ij} = 1/\tau_{ij}$ and $\tau_{ij}$ is the stochastic rate at
+    which electrons spontaneously decay from a higher state $\Ket{j}$ to a lower
+    state $\Ket{i}$. The quantity $\Gamma_{ij}$ is known as the natural
+    linewidth for the specific transition $\Ket{i} \rightarrow \Ket{j}$, for
+    reasons that will be clarified in section \ref{sec:propagation_twolevel}.
+
+  \subsection{The Interaction Hamiltonian}
+
+    A single-electron (or hydrogenic) atom has a positively charged nucleus and
+    a negatively charged electron, both of which will interact with an applied
+    electromagnetic field. At optical wavelengths, however, the interaction with
+    the nucleus is negligible\cite{bransden2003physics}, so we focus our
+    attention on the electron.
+
+    Without interaction with an external field, the bare atomic Hamiltonian is
+    given by
+    \begin{equation}
+      \mathcal{H}_0 = \frac{\mathbf{p}^2}{2 m_e} + V(r)
+    \end{equation}
+    where $m_e$ is the mass of the electron, $\mathbf{r}$ and $\mathbf{p} = \ii
+    \hbar \mathbf{\nabla}$ are its position and momentum operators, and $V(r)$
+    is the spherical atomic potential.
+
+    The non-relativistic Hamiltonian of the electron interacting with an applied
+    classical electric field $\mathbf{E}$, in the Coulomb gauge, may be written
+    \begin{equation}
+        \mathcal{H} = \mathcal{H}_0 + \mathcal{H}_I
+    \end{equation}
+    where the interaction Hamiltonian term $\mathcal{H}_I$ describes the
+    coupling of the atomic dipole to the field.\cite{bransden2003physics}  The
+    problem of the atom-light interaction is then one of calculating the matrix
+    elements of $\mathcal{H}_I$ as a perturbation to the eigenstate basis of
+    $\mathcal{H}_0$.
+
+    We will consider a monochromatic field with angular frequency $\omega$ and
+    wavenumber $\mathbf{k}$ (the analysis extends to multi-chromatic fields,
+    which we will consider in chapter \ref{chp:nonlinear}). We may write the
+    field as
+    \begin{equation}\label{eqn:envelope_carrier}
+      \mathbf{E}(\mathbf{r}, t) = \hat{\mathbf{x}} 
+      \left[ \tfrac{1}{2} \mathcal{E}(t) 
+      \mathrm{e}^{\mathrm{i}(\mathbf{k} \cdot \mathbf{r} - \omega t)} + 
+      \tfrac{1}{2} \mathcal{E}^*(t) \mathrm{e}^{-\mathrm{i}(\mathbf{k} \cdot 
+      \mathbf{r} - \omega t)} \right]
+    \end{equation}
+    where $\hat{\mathbf{x}}$ is the unit polarisation vector and 
+    $\mathcal{E}(t)$ is the field amplitude.    
+
+   We simplify calculation of matrix elements by making the exponential
+   expansion
+    \begin{equation}
+      \ee^{\ii\mathbf{k}\cdot\mathbf{r}} \approx 1 + 
+      (\ii \mathbf{k}\cdot\mathbf{r}) + 
+      \frac{1}{2!} ( \ii \mathbf{k}\cdot\mathbf{r})^2 + \dots 
+    \end{equation}
+    and neglecting all but the first term, unity. This \textit{electric dipole
+    approximation}\cite{grynberg2010introduction} represents neglecting the
+    spatial dependence of the field over the extent of the atom, and is
+    justified as the electronic wavefunction is on the order of the Bohr radius
+    at $\unit[10^{-10}]{m}$ and the optical carrier wavelength $\lambda =
+    2\pi/k$ is on the order of $\unit[10^{-7}]{m}$. The approximation may
+    equivalently be derived as truncating a multipole expansion of the
+    interaction at the dipole term.\cite{cohen1992atom}
+
+    Applying the electric dipole approximation, we may write the interaction Hamiltonian term as 
+    \begin{equation}
+      \mathcal{H}_I = -e \mathbf{r} \cdot \mathbf{E} 
+                    = -\mathbf{d} \cdot \mathbf{E}
+    \end{equation}
+    where analogous with a classical dipole moment, $\mathbf{d}$ is the
+    electric dipole operator. And we may take the field out of the spatial
+    integral implicit in calculating the matrix elements between two bare atom
+    eigenstates $\Ket{a}$ and $\Ket{b}$,
+    \begin{align}
+      \Bra{a} \mathcal{H}_I \Ket{b} &= -
+        \left [ \tfrac{1}{2} \mathcal{E}(t) 
+        \mathrm{e}^{- \mathrm{i} \omega t} +
+        \tfrac{1}{2} \mathcal{E}^*(t) \mathrm{e}^{\mathrm{i} \omega t} \right]
+        \Bra{a} \hat{\mathbf{x}} \cdot e \mathbf{r}
+        \Ket{b} \nonumber \\
+        &= - \left [ \tfrac{1}{2} \mathcal{E}(t) 
+        \mathrm{e}^{- \mathrm{i} \omega t} +
+        \tfrac{1}{2} \mathcal{E}^*(t) \mathrm{e}^{\mathrm{i} \omega t} \right] 
+        d_{ab}
+    \end{align}
+    where $ d_{ab}$ is then the matrix element of the electric dipole operator
+    $\mathbf{d}$ projected on the polarisation direction of the electric field.
+    The crux of the problem is then in calculating (or looking up) dipole matrix
+    elements for the eigenstates of a given system.
+
+  \subsection{Dipole Matrix Elements and Parity}
+
+    We can show that the diagonal matrix elements of $\mathbf{d} = e\mathbf{r}$
+    are zero by making a parity argument. We define the parity operator $\Pi$ as
+    the unitary operator (i.e. $\Pi^\dagger\Pi = 1$) that flips the sign of the
+    position operator $\mathbf{r}$ via
+    \begin{equation}
+      \Pi \mathbf{r} \Pi^\dagger = -\mathbf{r}.
+    \end{equation}
+
+    Operating with $\Pi$ on the right of both sides shows that the anticommutator
+    $\{ \Pi, \mathbf{r} \} = \Pi \mathbf{r} + \mathbf{r} \Pi = 0$ and thus the
+    matrix elements vanish
+    \begin{equation}
+      \left< i \right| \{ \Pi, \mathbf{r} \} \left| j \right> = 
+      \left< i \right| \Pi \mathbf{r} + \mathbf{r} \Pi \left| j \right> = 0 
+    \end{equation}
+    for any states $\Ket{i}, \Ket{j}$. Now $\Pi$ commutes with $\mathcal{H}$,
+    and so has the same eigenstates, so we have eigenvalues $\pi_i, \pi_j$ such
+    that $\Pi \Ket{i} = \pi_i \Ket{i}$ and $\Pi \Ket{j} = \pi_j \Ket{j}$. Thus
+    we can write
+    \begin{equation}
+      \left< i \right| \Pi \mathbf{r} + \mathbf{r} \Pi \left| j \right> = 
+      (\pi_i + \pi_j) \left< i \right|  \mathbf{r} \left| j \right>.
+    \end{equation}
+    The right hand side can only be zero if $\pi_i + \pi_j$ is zero or if the
+    matrix element is. Now, as $\Pi^2 = 1$, the eigenvalues $\pi = \pm1$. So for
+    the diagonal matrix elements, $\pi_i + \pi_i$ can't be zero and $\pi_j +
+    \pi_j$ can't be zero so it must be that $\left< i \right|\mathbf{r} \left| i
+    \right> = \left< j \right|\mathbf{r} \left| j \right> = 0$. The off-diagonal
+    matrix elements $\left< i \right|\mathbf{r} \left| j \right>$ are  non-
+    vanishing if the states have opposite parity such that $\pi_i = -\pi_j$.
+
+  \subsection{Atomic Coherence and Polarisation}
+
+    We introduced the polarisation $P$ in section \ref{sec:propagation_deriving}
+    as the cumulative effect of charge separation induced on individual atoms
+    and defined it in \ref{sec:propagation_susc} as the dipole moment per unit
+    volume.  In terms of atomic observables, the polarisation at a distance $z$
+    through the medium at time $t$ may therefore be written as the expectation
+    value of the scalar dipole operator for those atoms
+    \begin{equation}
+      P(z,t) = N(z) \langle \mathrm{d}(z,t) \rangle
+    \end{equation}
+
+    where $N(z)$ is the number density (atoms per unit volume) of the medium,
+    which may in general be a function of propagation distance $z$, for example
+    in an atom cloud shaped by the geometry of a magneto-optical
+    trap\cite{Adams1997}, or constant for a thermal cell in thermal equilibrium.
+
+    The expectation value of an observable for a system in a pure or mixed state
+    represented by a density matrix $\rho$ is defined in equation
+    (\ref{eqn:density_matrix_exp_value}), such that we may write
+    \begin{equation}
+      P(z,t) = N(z) \Tr{ \left[ \rho \mathrm{d}(z,t) \right] }.
+    \end{equation}
+    As we know from the above parity argument that the diagonal matrix elements
+    of the dipole operator are zero, we may then write $P$ directly in terms of
+    the off-diagonal elements and the atomic coherences, via
+    \begin{equation}
+      P(z,t) = N(z) \sum_{i \ne j}{\left[ d_{ij} \rho_{ij}(z,t) + 
+                                 d_{ji} \rho_{ji}(z,t) \right] }.
+    \end{equation}
+
+    Now in order to relate this to the slowly-varying envelope $\mathcal{P}$, we
+    need to rotate the density matrix elements, via
+    \begin{align*}
+      \rho_{ij} &= \tilde{\rho}_{ij} ~ \ee^{\ii (k z - \omega t)} \\
+      \rho_{ji} &= \rho^*_{ij} = \tilde{\rho}^*_{ij} ~ \ee^{-\ii (k z - \omega t)}
+    \end{align*}
+    where tilde-notated variables $\tilde{\rho}_{ij}$ are slowly-varying density
+    matrix elements. Dropping the tilde notation, we then derive an expression
+    for the slowly-varying polarisation envelope in terms of the atomic
+    coherences
+    \begin{equation} 
+      \mathcal{P}(z,t) = N(z) \sum_{i \ne j} d_{ij} \rho_{ij}(z,t)
+      \label{eqn:polarisation_coherences}
+    \end{equation} 
+    which we may substitute into the propagation equation
+    (\ref{eqn:fo_mwe}).
+
+    Note that in our discussion of polarisation in this section we have made no
+    reference to the susceptibilities $\chi^{(j)}(t)$. These are implicit in the
+    density matrix coherences. This analysis is valid for any general nonlinear
+    form of polarisation as expressed in equation (\ref{eqn:gen_polarisation})
+    if we can determine the evolution of atomic states from the Lindblad
+    equation (\ref{eqn:lindblad}). 
+
+  \subsection{Thermal Atoms}
+
+    The above analysis for the atom-light interaction is appropriate for
+    stationary (\ie ultracold) atoms but must be modified for thermal atoms due
+    to the averaging effect of atomic motion.\cite{Icsevgi1964}
+
+    An atom moving with a velocity component $v$ in the $z$-direction will
+    interact with a Doppler-shifted field frequency $\omega - k v$.  This shift is effected over a \textsc{1d} Maxwell-Boltzmann probability distribution function of velocity\cite{foot2005atomic, Gea-Banacloche1995}
+    \begin{equation}
+      f(v) = \frac{1}{u \sqrt{\pi}} \ee^{-(k v/u)^2}
+      \label{eqn:max_boltz}
+    \end{equation}
+    where the thermal width $u = k v_w$. Here $k$ is again the wavenumber of the
+    quasi-monochromatic field and $v_w = 2 k_B T/m$ is the most probable speed
+    of the Maxwell-Boltzmann distribution for a temperature $T$ and atomic mass
+    $m$. As is usual, $k_B$ represents the Boltzmann constant.
+
+    To include this Doppler effect in the field propagation equations
+    (\ref{eqn:fo_mwe}), we replace the atomic coherence factor by an
+    integral over a convolution of $f(v)$, with the atomic coherence now a
+    function of velocity, so that
+    \begin{equation}
+      \mathcal{P}(z,t) = N \sum_{i \ne j} d_{ij} \int_{-\infty}^{\infty} 
+                        \rho_{ij}(z,t; v) f(v) {\dd v}.
+      \label{eqn:polarisation_doppler}
+    \end{equation}
+    This velocity-dependent $\rho_{ij}(z,t; v)$ represents the atomic coherence
+    resulting from interaction with a field at the Doppler-shifted frequency
+    $\omega - k v$.
+
+    The result of the inclusion of thermal effects is a broadening of absorption
+    resonance widths, a familiar concern in spectroscopy. We will consider
+    example spectral profiles in section \ref{sec:propagation_twolevel}.
+
+  \subsection{Shifting to the Speed-of-Light Reference Frame}
+
+    To solve the propagation equation (\ref{eqn:fo_mwe}) as a boundary value
+    problem, it is useful to introduce co-moving variables $\zeta = z$ and $t' =
+    t - z/c$. This is equivalent to using a reference frame that moves with the
+    speed of light across the medium.\cite{Icsevgi1964} We then have
+    \begin{equation}
+    \frac{\partial}{\partial \zeta} = \frac{\partial z}{\partial \zeta} \frac{\partial}{\partial z} +  \frac{\partial t}{\partial \zeta} \frac{\partial}{\partial t} = \frac{\partial}{\partial z} + \frac{1}{c} \frac{\partial}{\partial t}      
+    \end{equation}
+    so that
+    \begin{equation}\label{eqn:comoving_mwe}
+      \frac{\partial}{\partial z} \mathcal{E}(z,t') = 
+        \mathrm{i} \frac{k}{2 \epsilon_0}
+        N(z) \sum_{i \ne j} d_{ij} \int_{-\infty}^{\infty} 
+          \rho_{ij}(z,t; v) f(v) {\dd v}. 
+    \end{equation}
+    In this reference frame we see that the propagation equation for the field
+    is now a differential equation only in $z$.
+
+  \subsection{A Recap}
+
+    At this point we have derived a set of coupled partial differential
+    equations describing the dynamics of the atomic density operator
+    (\ref{eqn:lindblad}) and the propagation of the electric field envelope
+    (\ref{eqn:comoving_mwe}).
+
+    These coupled equations can be integrated numerically for a given set of
+    boundary conditions defining the input profile of the electric field and the
+    initial state of the atoms. The integration proceeds via the following
+    recipe, which must be repeated in a self-consistent manner:
+    \begin{enumerate}
+      \item Solve the Lindblad master equation for the quantal dynamics of the
+        atomic density matrix over time $t'$.
+      \item Average the Maxwell-Boltzmann probability distribution over velocity
+        $v$.
+      \item Solve the Maxwell wave equations for propagation of the 
+        electromagnetic field over space $z$.
+    \end{enumerate}
+
+    The description of the specific numerical algorithms used for integration,
+    along with details of the Python code used to implement these algorithms, is
+    given in appendices \ref{apx:ob_eqns} and \ref{apx:mb_eqns}. We will make
+    use of these methods to solve the \textsc{mb} equations for various systems
+    of interest throughout the chapters of this thesis.
+

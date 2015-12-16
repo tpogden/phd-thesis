@@ -6,6 +6,16 @@
 
 \usepackage{thesis}
 
+\hypersetup{
+  pdfauthor = {Thomas P. Ogden}, 
+  pdftitle = {}, 
+  pdfsubject = {PhD Thesis},
+  pdfkeywords = {}
+}
+
+\newcommand{\thesistitle}{Thesis Title}
+\newcommand{\myname}{Thomas P. Ogden} 
+
 % TPO STUFF
 
 \usepackage{braket}
@@ -33,8 +43,8 @@
 
 \renewcommand*\rmdefault{pplj} % old style numbers
 
-% \newenvironment{chabstract}{\rightskip1in\itshape}{} % chapter abstracts
-\newenvironment{chabstract}{\itshape}{} % chapter abstracts
+% % \newenvironment{chabstract}{\rightskip1in\itshape}{} % chapter abstracts
+% \newenvironment{chabstract}{\itshape}{} % chapter abstracts
 
 \usepackage{wrapfig}
 
@@ -49,17 +59,16 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
+  \lhead{\nouppercase{\it \leftmark}}             % SINGLE
+  \rhead{\thepage}                                % SINGLE
+  \headheight = 10pt \textheight = 22.9truecm \leftmargin =7truecm
+  \voffset    = -1truecm \raggedbottom \cfoot{}
+
+  \parindent 0pt
+
+  % \pagestyle{fancy}
+
 %%% END TPO STUFF
-
-\hypersetup{
-  pdfauthor = {Thomas P. Ogden}, 
-  pdftitle = {}, 
-  pdfsubject = {PhD Thesis},
-  pdfkeywords = {}
-}
-
-\newcommand{\thesistitle}{Thesis Title}
-\newcommand{\myname}{Thomas P. Ogden} 
 
 % \addtocontents{toc}{\hfill Page\endgraf}%
 % \addtocontents{lof}{\ Figure\hfill  Page\endgraf}%
@@ -71,62 +80,13 @@
   \pagenumbering{arabic}
   % \setcounter{page}{0}
 
-  % \pagestyle{fancy}
+  \input{00_abstract}
 
-  \lhead{\nouppercase{\it \leftmark}}             % SINGLE
-  \rhead{\thepage}                                % SINGLE
-  \headheight = 10pt \textheight = 22.9truecm \leftmargin =7truecm
-  \voffset    = -1truecm \raggedbottom \cfoot{}
+  \input{00_title}
 
-  \parindent 0pt
+  \include{00_declaration}
 
-  % \addcontentsline{toc}{chapter}{Abstract}
-  \thispagestyle{empty}
-  \vspace{-1cm}
-  \begin{center}
-  {\huge \textbf{\thesistitle}}
-  \\
-  \vspace{0.8cm} {\Large \textbf{\myname}\\\rule{7cm}{0.2mm}}
-  \end{center}
-  \vspace{0.6cm}
-  {\large \textbf{Abstract}}
-
-  % \input{abstract}
-
-  \newpage
-
-  \chapter*{}
-  % \addtocounter{page}{-1}
-  \thispagestyle{empty} 
-  \vspace{-1cm}
-  \begin{center}
-  {\huge\textbf{\thesistitle}\par}
-
-  \vspace{1.5cm} {\Large{\textbf{\myname}}}
-  \par
-  \rule{8cm}{0.2mm} \vspace{0.7cm} \par {A thesis submitted in
-  partial fulfilment \\of the requirements for the degree of
-  \\Doctor of Philosophy.}
-  % \vspace{4.5truecm}
-  \vspace{3.0truecm} %TPO
-  \par
-  \begin{figure}[h]
-  \centering \includegraphics[width=6.4cm]{figs/crest.pdf}
-  \end{figure}
-
-  {\large Department of Physics} \vspace{0.15cm}\\{\large Durham
-  University} \vspace{0.5cm}
-  \\
-  \begin{large}
-  \today
-  \end{large}
-  \end{center}
-
-  \newpage
-
-  % \include{declaration}
-
-  % \include{dedication}
+  \include{00_dedication}
 
   \newpage
 
@@ -147,7 +107,7 @@
 
   % \input ch01_intro
 
-  % \input ch03_propagation
+  \input 02_00_propagation
 
   % \input ch04_nonlinear
 
@@ -172,7 +132,7 @@
 
   % \input{acknowledgements}
 
-  % \bibliography{thesis}
+  \bibliography{thesis}
   \bibliographystyle{unsrt}
 
 \end{document}

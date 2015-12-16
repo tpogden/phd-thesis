@@ -1,0 +1,166 @@
+\section{Linear Optics, Susceptibility and Refractive Index}
+  \label{sec:propagation_susc}
+
+  % \subsection{Intro}
+
+  The effect of an electric field $\mathbf{E}$ applied on a single neutral atom
+  is to separate the positively charged core (which moves in the direction of
+  the field $\mathbf{E}$) and the negatively charged electron cloud (which moves
+  in the opposite direction $-\mathbf{E}$) such that a dipole is induced on the
+  atom parallel to the field. For an atomic vapour subject to a field, dipoles
+  will be induced on many atoms. The cumulative effect is that the medium is
+  polarised, and we define $\mathbf{P}$ as the dipole moment per unit volume.
+
+  \subsection{Susceptibility}
+
+    In general, the instantaneous polarisation induced by the field at a time
+    $t$ is some function of the input field, which we may write as a power
+    expansion\cite{boyd2008nonlinear} in $\mathbf{E}$,
+    \begin{equation}\label{eqn:gen_polarisation}
+      \mathbf{P}_{\mathrm{inst}}(t) = \varepsilon_0 \left
+          [ \chi^{(1)}(t) \mathbf{E}(t) +  
+      \chi^{(2)}(t) \mathbf{E}(t)^2 + 
+      \chi^{(3)}(t) \mathbf{E}(t)^3 + \dots \right]
+    \end{equation}
+
+    where the expansion coefficients $\chi^{(j)}(t)$ are known as the $j$th-
+    order susceptibilities.
+
+    If the applied field is weak, we find that the induced polarisation is
+    proportional to that field, such that susceptibilities higher than
+    $\chi^{(1)}$ are taken as zero and terms higher than the first order in
+    (\ref{eqn:gen_polarisation}) are neglected. This is the regime of
+    \textit{linear optics}. In this thesis we are particularly interested in
+    developing and understanding numerical solutions of \textit{nonlinear}
+    problems, \ie those in which higher order terms become significant. Systems
+    involving weak fields are commonplace however, and as they permit analytic
+    solution, along with offering insight into a broad range of optical
+    phenomena, we will look at the linear regime briefly.
+
+    The cumulative induced polarisation $P(t)$ is an integral of the
+    instantaneous polarisation over all times $t'$ previous
+    \begin{equation}\label{eqn:lin_pol_int}
+      P(t) = \varepsilon_0 \int_{-\infty}^t{\chi(t') E(t - t') \dd t'}
+    \end{equation}
+    where we no longer require a superscript to define the linear susceptibility
+    $\chi(t) := \chi^{(1)}(t)$. The upper limit on the integral expresses the
+    causality condition that only the applied field at times in the past may
+    affect the current state of the atoms.
+
+    So far we have described atomic response in the time domain, which is
+    particularly useful when looking at time-dependent input fields such as
+    short pulses. But it is also instructive to look at the frequency domain,
+    which is advantageous when the input field is monochromatic. The change in
+    perspective is effected as usual via the Fourier
+    transform.\cite{hecht2015optics} We will use the convention for the
+    transform on the electric field envelope
+    $\mathcal{E}(t)$
+    \begin{equation}\label{eqn:fourier_transform}
+      \mathcal{E}(\omega) = \int_{-\infty}^{\infty} \mathcal{E}(t) 
+                              \ee^{\ii \omega t}  \dd t
+    \end{equation}
+    and for the inverse
+    \begin{equation}\label{eqn:fourier_inv}
+      \mathcal{E}(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{E}(\omega) 
+                          \ee^{-\ii \omega t} \dd \omega
+    \end{equation} 
+    and we define the transform in the same way for the polarisation envelope
+    $\mathcal{P}(t)$.
+
+    Making the envelope and carrier ansatz as in (\ref{eqn:envelope_carrier})
+    and substituting (\ref{eqn:fourier_inv}) into the right-hand side of
+    (\ref{eqn:lin_pol_int}), we get
+    \begin{equation}
+      \mathcal{P}(t) = \varepsilon_0 \int_{-\infty}^{t} \chi(t') \frac{1}{2 \pi} 
+      \int_{-\infty}^{\infty} \mathcal{E}(\omega) \ee^{-\ii \omega (t - t')} 
+      \dd \omega \dd t'.
+    \end{equation}
+
+    We now define the frequency-dependent linear susceptibility 
+    \begin{equation}
+       \chi(\omega) := \int_{-\infty}^{t} \chi(t') \ee^{\ii \omega t'} \dd t'
+    \end{equation}  
+    such that
+    \begin{equation}
+      \mathcal{P}(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \varepsilon_0 
+      \chi(\omega) \mathcal{E}(\omega) \ee^{-\ii \omega t} \dd \omega.
+    \end{equation}
+
+    This expression gives the time-dependent polarisation in terms of the
+    frequency components of the field weighted by that frequency-dependent
+    susceptibility function. We may then take the Fourier transform of the 
+    left-hand side and, as the equality holds for each frequency, we obtain the
+    frequency domain linear response function
+    \begin{equation}\label{eqn:lin_pol_freq} 
+      \mathcal{P}(\omega) = \varepsilon_0 \chi(\omega) \mathcal{E}(\omega).
+    \end{equation}
+
+    We may now substitute this expression into (\ref{eqn:fo_mwe}), with
+    $\mathcal{E}(\omega)$ time-independent by the definition
+    (\ref{eqn:fourier_transform}), to obtain
+    \begin{equation}\label{eqn:fo_mwe_linear}
+      \frac{\partial \mathcal{E}(z, \omega)}{\partial z} = 
+      \ii \frac{k}{2} \chi(\omega) \mathcal{E}(z, \omega).
+    \end{equation}
+    This first-order differential equation in $z$ has the analytical solution 
+    \begin{equation}
+      \mathcal{E}(z, \omega) = \ee^{\ii \tfrac{k}{2} \chi z}.
+    \end{equation}
+
+    Having determined an expression for the electric field envelope in terms of
+    the frequency-dependent susceptibility, we can put this expression for the
+    envelope into \ref{eqn:fo_mwe} in order to determine the effect it will
+    have. It is useful to separate the real and imaginary parts of the
+    susceptibility $\chi(\omega) := \chi_R(\omega) + \ii \chi_I(\omega)$, and we
+    find
+    \begin{equation}\label{eqn:efield_susc_real_imag}
+      \mathcal{E}(z, \omega) = 
+      \mathcal{E}(0, \omega)    
+      \ee^{\ii(\frac{k}{2} \chi_R z)} 
+      \ee^{- \frac{k}{2} \chi_I z}.
+    \end{equation}
+
+    The real part of the frequency dependent susceptibility then corresponds to
+    a phase shift $\frac{k}{2} \chi_R z$ and so dispersion, and the imaginary
+    part diminishes the field. As defined in (\ref{eqn:intensity}) the intensity
+    $I \propto |\mathcal{E}|^2$ and so is attenuated as it progresses through
+    the medium via
+    \begin{equation}\label{eqn:beer_law}
+      I(z, \omega) = I_0(z, \omega) \ee^{-\alpha(\omega) z}
+    \end{equation}
+    where the absorption coefficient $\alpha(\omega) := k \chi_I(\omega)$. This
+    is the familiar Beer law of absorption for weak fields.
+    
+  \subsection{Refractive Index}
+
+    If we return back to the Maxwell equations, we see by substitution of the
+    susceptibility $\chi$ into the definition for dispersion
+    (\ref{eqn:elec_displacement}), we get
+    \begin{equation}
+        \mathbf{D} = \varepsilon_0 (1 + \chi) \mathbf{E}.
+    \end{equation}
+
+    Deriving the Maxwell wave equation again using this substitution, we find
+    that the result is as for propagation in free space but with the vacuum
+    speed $c$ replaced with a general phase velocity      
+    \begin{equation}
+        v_p = \frac{c}{\sqrt{1 + \chi}} = \frac{c}{n}
+    \end{equation}
+    where $n$ is the refractive index, familiar from geometrical optics. In most
+    linear media $\chi$ is positive, so light travels more slowly in the
+    medium.\cite{James1992}
+
+    This leads us to consider what this velocity represents, considering that
+    photons are massless and must travel at $c$.\cite{feynman1963feynman}. The
+    resultant field wave is a superposition of the applied field wave and a
+    secondary field wave which results from induced dipoles. In linear media,
+    this resultant wave has the same carrier frequency but a different phase.
+    The fact that the frequency is the same is the reason dense transparent
+    materials exist. If the secondary wave lags the applied wave, the resultant
+    wave will also lag. An observer in the medium will have to wait longer for
+    the peaks of the resultant wave to come past. It is this phase difference
+    which leads to an apparently slower phase velocity. The refractive index
+    represents the cumulative phase difference as the light moves through the
+    medium.\cite{hecht2015optics}
+
+  
