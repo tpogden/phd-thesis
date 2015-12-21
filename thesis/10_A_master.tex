@@ -1,3 +1,136 @@
 \chapter[Dynamics of Open Quantum Systems]
   {Dynamics of Open\\ Quantum Systems}
   \label{apx:qu_dyn}
+
+  \section{The Density Operator}
+
+    We typically describe the state of a quantised atomic system via its state
+    vector
+    \begin{equation}
+      \Ket{\psi} = \sum_j{c_j} \Ket{j},
+      \label{eqn:state_vector}
+    \end{equation}
+
+    a linear superposition of the eigenstates $\Ket{j}$. There are many physical
+    situations, however, in which there is significant coupling to an external
+    environment the state evolution of which we cannot follow.
+
+    Atom-light interactions are one such system. While the processed of
+    absorption and stimulated emission (of photons from and to the applied
+    field) can be described within a \textit{closed quantum system}, the process
+    of spontaneous decay due to interaction with vacuum fluctuations surrounding
+    an atom cannot.
+
+    For such \textit{open quantum systems} it is useful to generalise the
+    concept of $\Ket{\psi}$ to that of the \textit{density operator} $\rho$. A
+    \textit{pure state} is one that can be represented by a linear superposition
+    as in (\ref{eqn:state_vector}), for which the density matrix is defined as
+    $\rho = \Ket{\psi} \Bra{\psi}$. This is clearly equivalent in information to
+    $\Ket{\psi}$. The usefulness of the density operator $\rho$ is that it can
+    be generalised in a statistical way to represent incoherent superpositions
+    of wavefunctions. We assume we have a mixture of states $\Ket{\psi_s}$ each
+    with different expansions in the eigenbasis $\Ket{j}$, contained in the
+    ensemble with probabilities $P(s) \ge 0$. The density operator for this
+    general \textit{mixed state} is then defined as
+    \begin{equation}
+      \rho = \sum_s P(s) \Ket{\psi_s} \Bra{\psi_s}
+    \end{equation}
+    where for proper normalisation
+    \begin{equation}
+      \sum_s P(s) = 1.
+    \end{equation}
+
+    We may consider that $\Ket{\psi}$ describes the intrinsic Heisenberg
+    uncertainty required by quantum mechanics, where $\rho$ is also able to
+    describe additional uncertainty representing our state of knowledge of the
+    system.\cite{Steck2007}
+
+    The matrix representation of the density operator in a particular basis is
+    also known as the density matrix. The off-diagonal elements $\rho_{jk} =
+    \Bra{j} \rho \Ket{k}$ depend on relative phase of the coefficients and are
+    known as \textit{coherences}. The diagonal matrix elements $\rho_{jj} =
+    \Bra{j} \rho \Ket{j}$ represent the probability of a measurement finding the
+    system in state $\Ket{j}$ and are known as \textit{populations}. These
+    populations form a probability distribution and so must be normalised such
+    that
+    \begin{equation}
+      \Tr\left[{\rho}\right] = \sum_j{\rho_{jj}} = 1.
+    \end{equation}
+    The expectation value of an operator $A$ in the density matrix formalism is
+    given by
+    \begin{equation}\label{eqn:density_matrix_exp_value}
+      \langle A \rangle = \Tr \left[{A \rho} \right].
+    \end{equation}
+
+  \section{The Master Equation}
+
+    By substituting the density operator $\rho$ into the standard Schr\"{o}dinger equation for motion of the quantum state
+    $$
+      \ii \hbar \frac{\partial}{\partial t} \ket{\psi} = \mathcal{H} \ket{\psi}
+    $$
+    we obtain the \textit{von Neumann equation} for unitary evolution
+    \begin{equation}
+      \ii \hbar \frac{\partial \rho}{\partial t} = [\mathcal{H}, \rho]
+      \label{eqn:von_neu}
+    \end{equation}
+    which for pure states is equivalent to the Schr\"{o}dinger equation.
+
+    We wish to extend the formalism to mixed states and derive an equation of
+    motion for the open quantum system interacting with an environment. The
+    observed effect of interaction with an unmonitored environment is to
+    introduce non-deterministic transitions between eigenstates and dephasing
+    between them.
+
+    We start by expanding the model to include the environment, such that the
+    total system is closed and described by (\ref{eqn:von_neu}). In order to
+    meet this requirement, we must consider the Hilbert space of the total
+    system,  and a total Hamiltonian operating over that space
+    \begin{equation}
+      \mathcal{H}_\Sigma = \mathcal{H} + \mathcal{H}_E + \mathcal{H}_C
+    \end{equation}
+    where $\mathcal{H}$ is the Hamiltonian of the system, $\mathcal{H}_E$ is the
+    Hamiltonian of the environment, and $\mathcal{H}_C$ is the Hamiltonian
+    describing the interaction between the system and the environment.
+
+    As we're only concerned with the dynamics of $\mathcal{H}$, we then make a
+    partial trace over the environment degrees of freedom in (\ref{eqn:von_neu})
+    to obtain a master equation for time evolution of the system. The
+    \textit{Lindblad master equation} is a general, trace-preserving and
+    positive form for the reduced density matrix $\rho$, given by
+    \begin{equation}
+      \ii \hbar \frac{\partial \rho}{\partial t} = [\mathcal{H}, \rho] + 
+        \mathcal{L}\left\{ \rho \right\}
+      \label{eqn:lindblad_apx}
+    \end{equation}
+    where the Lindblad term given by
+    \begin{equation}
+      \mathcal{L}\left\{ \rho \right\} = \sum_j{C_j \rho C_j^\dagger - 
+      \tfrac{1}{2}\left(\rho C_j^\dagger C_j + C_j^\dagger C_j \rho \right)}
+      \label{eqn:lindblad_op}
+    \end{equation}
+
+    is a superoperator describing the system interaction with its environment
+    via collapse operators $C_j$ coupling states. For example, to account for a
+    stochastic interaction with the environment representing the decay of a
+    system from state $\Ket{k}$ to state $\Ket{j}$ with rate $\Gamma_{jk}$, we
+    include a collapse operator
+    $$
+    C_j = \sqrt{\Gamma_{jk}}\Ket{j}\Bra{k}
+    $$
+    in the Linblad term.
+
+    For the Lindblad equation ($\ref{eqn:lindblad_apx}$) to be applicable as a
+    master equation for the system, a couple of approximations must be
+    justified. Firstly, the Born approximation requires that the environment is
+    sufficiently large that it is not much affected by interaction with the
+    system. We may write this as 
+    \begin{equation}
+      \rho_\Sigma \approx \rho \otimes \rho_E.
+    \end{equation}
+    Secondly, the Markov approximation requires that the time evolution depends
+    on $\rho(t)$ and not any past history --- this is also called a `short-
+    memory environment'.
+
+    % An alternative approach to following the time evolution is to use a quantum-
+    % jump based Monte Carlo method. This is computationally useful when the
+    % density matrix is large.

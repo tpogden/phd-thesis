@@ -1,3 +1,95 @@
 \chapter[The Two-Step Adams-Bashforth Method]
   {The Two-Step Adams-Bashforth\\ Method with Varying Stepsize}
   \label{apx:ab_method}
+
+    Adams-Bashforth integration methods have a well-known derivation but we are
+    not aware of a reference for the two-step method in the case that the two
+    stepsizes are different, so we present the result here. This numerical
+    method is used in solving the \textsc{mb} equations as described in
+    chapter\ref{apx:mb_eqns}. The two-step method requires two initial points,
+    and  the second point is calculated using a Euler step, which we wish to
+    keep small to avoid introducing a large global error. The third point is
+    then calculated with the Adams-Bashforth method with different step sizes.
+    From then on the standard Adams-Bashforth method can be used.
+
+    We take an ordinary differential equation $y' = f(z,y(z))$ with an initial
+    condition $y(z_0) = y_0$ that we wish to solve numerically. If we know
+    $y(z)$ at a time $z_n$ and want to know what $z$ is at a later time
+    $z_{n+1}$, the fundamental theorem of calculus tells us that we find it by
+    integrating $y'$ over the time interval
+    \begin{equation}\label{eqn:fund_thrm_calculus}
+      y(z_{n+1}) = y(z_n) + \int_{z_n}^{z_{n+1}} \! y'(z) \, 
+      \mathrm{d}z = y(z_n) + \int_{z_n}^{z_{n+1}} \! f(z,y(z)) \, \mathrm{d}z.
+    \end{equation}
+    The idea behind any \textsc{ode} integrator is to compute the right-hand-
+    side integral for some numerical approximation of $f$. The problem is then
+    computed over a series of steps $n = 1, 2, \dots N$ to give a sequence of
+    points $z_n$ which approximate $y(z)$ to some order of accuracy as a
+    function of the stepsize. The method is consistent if the local error (\ie
+    the error from step $n$ to step $n+1$) goes to zero faster than the stepsize
+    ($z_{n+1} - z_n$) goes to zero.
+
+    Where the Euler method takes the slope $f$ to be a constant on the interval
+    $[z_n, z_{n+1}]$, the idea behind Adams-Bashforth methods is to approxmiate
+    $f$ by a Lagrange interpolating polynomial\cite{arfken2005mathematical}
+    \begin{equation}
+      P(z) = \sum_{j=1}^{m}{P_j(z)} 
+    \end{equation}
+    where
+    \begin{equation}
+      P_j(z) = y_j \prod_{\substack{k=1 \\ k \ne j}}^{m}{ 
+      \frac{z - z_k}{z_j - z_k} }.
+    \end{equation}
+
+    Here $P(z)$ is the polynomial of degree $\le (m-1)$ that passes through the
+    $m$ points $(z_1, y_1 = f(z_1))$, $(z_2, y_2 = f(z_2))$ $\dots$ $(z_m, y_m =
+    f(z_m))$. We'll take the linear $(m = 2)$ interpolant on the point $z_{n}$
+    and an earlier point $z_{n-1}$, so we have
+    \begin{equation}
+      P(z) = f(z_n, y_n)\frac{z - z_{n-1}}{z_n - z_{n-1}} + 
+            f(z_{n-1}, y_{n-1})\frac{z - z_{n}}{z_{n-1} - z_n}.
+    \end{equation}
+
+    Now if we substitute this approximating polynomial into the integral in
+    (\ref{eqn:fund_thrm_calculus}), we find
+    \begin{align*}
+      \int_{z_n}^{z_{n+1}} \! f(z,y(z)) \, \mathrm{d}z 
+      &\approx \int_{z_n}^{z_{n+1}} \! P(z) \, \mathrm{d}z \\
+      &= \int_{z_n}^{z_{n+1}} \! \left[ f(z_n, y_n)\frac{z - z_{n-1}}{z_n - 
+      z_{n-1}} + f(z_{n-1}, y_{n-1})\frac{z - z_{n}}{z_{n-1} - z_n} \right] 
+      \mathrm{d}z \\
+    \end{align*}
+    into which we may then put in the limits to obtain
+    \begin{align}
+      \int_{z_n}^{z_{n+1}} \! f(z,y(z)) \, \mathrm{d}z 
+      \approx \frac{(z_n - z_{n+1})}{2(z_{n-1}-z_n)} \Big[ & f(z_n,y_n)(z_n + 
+      z_{n+1} - 2z_{n-1}) \nonumber \\ 
+        & - f(z_{n-1},y_{n-1})(z_n - z_{n+1}) \Big].
+    \end{align}
+
+    If we let $h_1 := z_n - z_{n-1}$ and $h_2 := z_{n+1} - z_n$ then
+    \begin{equation*}
+      \int_{z_n}^{z_{n+1}} \! P(z) \, \mathrm{d}z = \frac{h_2}{2 h_1} 
+      \left[ (2 h_1 + h_2) f(z_n,y_n) - h_2 f(z_{n-1},y_{n-1}) \right].
+    \end{equation*}
+    Putting this back into the approximation of (\ref{eqn:fund_thrm_calculus}), 
+    we get
+    \begin{equation*}
+      y(z_{n+1}) \approx y(z_{n}) + \frac{h_2}{2 h_1} \left[ (2 h_1 + h_2) 
+      f(z_n,y_n)  - h_2 f(z_{n-1},y_{n-1}) \right] 
+    \end{equation*}
+    and our sequence of approximation points $y_n$ is calculated as
+    \begin{equation}\label{eqn:ab_step_different}
+      y_{n+1} = y_n + \frac{h_2}{2 h_1} \left[ (2 h_1 + h_2) f(z_n,y_n)  - 
+      h_2 f(z_{n-1},y_{n-1}) \right]
+    \end{equation}
+    for $n = 1, 2, \dots N$. This is the correct second-order Adams-Bashforth 
+    finite difference step in the case that the stepsizes are different.
+
+    If the steps are of equal size, i.e. $h := h_1 =
+    h_2$ we find
+    \begin{equation}\label{eqn:ab_step_standard}
+      y_{n+1} = y_n + \frac{3}{2} h f(z_n,y_n) - \frac{1}{2} h f(z_{n-1}, 
+      y_{n-1})
+    \end{equation}
+    which is the standard two-step Adams-Bashforth method\cite{edsberg2008introduction,bashforth1883attempt}.
