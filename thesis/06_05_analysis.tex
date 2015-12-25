@@ -30,20 +30,20 @@
     Time evolution of the density matrix elements from numerical solution of the
     master equation for the V configuration atom.  (a) Rabi frequency profiles
     of the two fields: a \textsc{cw} probe $\Omega_p$ (red) and Gaussian pulsed
-    coupling $\Omega_c$ (grey) with amplitude $\unit[100]\Gamma$ and width $t_w
+    coupling $\Omega_c$ (grey) with amplitude $\unit[2\pi\times100]\Gamma$ and width $t_w
     = $ \unit[0.02]{$\tau_\Gamma$}. (b) Populations of the atomic eigenstates.
     (c) The imaginary part of coherence $\rho_{01}$ (purple) and the real part
     of coherence $\rho_{12}$ (green).
     }
-    \label{fig:ob_vee_plse}
+    \label{fig:ob_vee_pulse}
     \end{figure}
 
-    In figure \ref{fig:ob_vee_plse} we show the time evolution of density matrix
-    populations and coherences for an example Gaussian pulse profile of peak
-    $\unit[100]\Gamma$ and width \unit[0.02]{$\tau_\Gamma$}, where here we'll
-    assume $\Gamma := \Gamma_{01} = \Gamma_{02}$ and define $\tau_\Gamma :=
-    \nicefrac{1}{\Gamma}$ as the reciprocal lifetime. The \textsc{cw} probe Rabi
-    frequency is $\unit[50]\Gamma$. Before the pulse, the steady state
+    In figure \ref{fig:ob_vee_pulse} we show the time evolution of density
+    matrix populations and coherences for an example Gaussian pulse profile of
+    peak $\unit[100]\Gamma$ and width \unit[0.02]{$\tau_\Gamma$}, where here
+    we ll assume $\Gamma := \Gamma_{01} = \Gamma_{02}$ and define $\tau_\Gamma
+    := \nicefrac{1}{\Gamma}$ as the reciprocal lifetime. The \textsc{cw} probe
+    Rabi frequency is $\unit[50]\Gamma$. Before the pulse, the steady state
     population is an even split between $\rho_{00}$ and $\rho_{11}$. As the
     pulse ramps on we see it coherently drive population transfer such that it
     oscillates between populations $\rho_{11}$ and $\rho_{22}$. This is
@@ -84,6 +84,113 @@
     \end{align}
     \label{eqn:vee_dm_equations}
     \end{subequations}
-    Note that $\rho_{10} = \rho_{01}^\dagger$ and $\rho_{20} = \rho_{02}^\dagger$.
+    Note that $\rho_{10} = \rho_{01}^\dagger$ and $\rho_{20} =
+    \rho_{02}^\dagger$.
+
+    Starting with equation (\ref{eqn:vee_dm_equations}e) we see that in the case
+    of two-photon resonance ($\Delta_1 = \Delta_2 = 0$) and in the steady state
+    at the start of the pulse
+    \begin{equation}
+       \frac{\partial \rho_{12}(t_{0})}{\partial t} \approx \frac{\ii}{2} 
+        \Omega_c(t_{0}) \rho_{10}(t_{0}).
+      \label{eqn:rho12}
+    \end{equation}
+    The steady state $\rho_{10}$ for the two-level system is
+    positive imaginary, thus $\rho_{12}$ is initially driven real and positive
+    by the pulse.
+
+    If we next look at equation (\ref{eqn:vee_dm_equations}b), we see that again
+    on resonance and in the steady state with $\rho_{11} = \rho_{00}$
+    \begin{equation}
+       \frac{\partial \rho_{01}(t_{0})}{\partial t} \approx -\frac{\ii}{2} 
+        \Omega_c \rho_{21}
+      \label{eqn:rho01}
+    \end{equation}
+    such that with $\rho_{21}$ real and positive $\rho_{01}$ is driven imaginary
+    and negative. This is consistent with the behaviour observed in the
+    evolution of coherences in figure \ref{fig:ob_vee_pulse}.
+
+  \subsection{Coherent Population Trapping}
+
+    We may gain further insight into the transient effect of the pulse on the
+    system by considering the eigenstates of the atom dressed by the fields,
+    that is the eigenvectors of $\mathcal{H}_\mathrm{V}$.\cite{lambropoulos2007fundamentals, Blok1990} If we consider equal
+    detunings $\Delta := \Delta_p = \Delta_c$ and solve for
+    $\mathcal{H}_\mathrm{V} \Ket{\psi} = \hbar \lambda \Ket{\psi}$ we find
+    eigenvalues
+    \begin{subequations}
+      \begin{align}
+      \lambda_0 &= -\Delta \\
+      \lambda_\pm &= \frac{-\Delta \pm \bar{\Omega}}{2}
+      \end{align}
+      \label{eqn:vee_eigvals}
+    \end{subequations}
+    where $\bar{\Omega}= \sqrt{\Omega_p^2 + \Omega_c^2 + \Delta^2}$. These
+    eigenvalues have corresponding normalised eigenstates
+    \begin{subequations}
+      \begin{align}
+      \Ket{D} &= \frac{1}{\sqrt{N_0}} \big( -\Omega_c \Ket{1} + \Omega_p 
+      \Ket{2} \big) \\
+      \Ket{B_\pm} &= \frac{1}{\sqrt{N_\pm}} \big(-2 \lambda_\mp \Ket{0} + 
+      \Omega_p \Ket{1} + \Omega_c \Ket{2} \big)
+      \end{align}
+      \label{eqn:vee_eigvects}
+    \end{subequations}
+    where $N_0 := \Omega_p^2 + \Omega_c^2$ and $N_\pm := N_0 + 4 \lambda_\mp^2$.
+
+    Note that the energy eigenvalue $\lambda_0$ is zero on resonance, such that
+    it is decoupled from the fields. For this reason, its corresponding
+    eigenstate $\Ket{D}$, which does not contain any component of the ground
+    state, is known as a dark state. Any population entering the dark state
+    cannot be driven out again by the coherent fields, it can only decay
+    spontaneously. This phenomenon is known as coherent population trapping
+    (\textsc{cpt}).\cite{Fleischhauer2005} The states $\Ket{B_\pm}$, which are
+    coupled to the fields, are known as bright states.
+
+    We can transform from the bare state density matrix $\rho$ to the similar
+    \textsc{cpt} state density matrix $\rho'$ via
+    \begin{equation}
+      \rho' = \mathcal{T}^{-1} \rho \mathcal{T}
+      \label{eqn:rho01}
+    \end{equation}
+    where $\mathcal{T}$ is the unitary transform defined by equations
+    (\ref{eqn:vee_eigvects}).
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]{figs/06_simultons/ob_vee_solve_pls_t002_50c_100p_fig2.pdf}
+    \caption{
+    Time evolution of the populations of the \textsc{cpt} state populations
+    $\Ket{D}$ (blue), $\Ket{B_-}$ (red) and $\Ket{B_+}$ (green dashed) for the
+    V-type atom addressed by a coupling pulse with amplitude $\unit[100]\Gamma$
+    and width $t_w = $ \unit[0.02]{$\tau_\Gamma$}.
+    }
+    \label{fig:wp_propagation} 
+    \end{figure}
+
+    In figure \ref{fig:wp_propagation}, we show the time evolution of the
+    populations of the \textsc{cpt} states $\Ket{D}$ and $\Ket{B_\pm}$ during
+    the pulse shown in figure \ref{fig:ob_vee_pulse} for the bare states. We
+    see that during the pulse, a significant amount of population is driven into
+    the dark state $\Ket{D}$, where it will be trapped. This suggests the
+    effects of the pulse will be counteracted after a short time period.
+
+    In summary, in this section we have analysed the time evolution of the
+    atomic states in both the bare and \textsc{cpt} basis during the pulse. We
+    found that the strong pulse drives an oscillation, first negative, in the
+    imaginary part of $\rho_{01}$, which we expect to cause a reduction in
+    absorption or even amplification of the probe beam due to the relation of
+    this coherence to the macroscopic polarisation of the medium.
+
+    Looking at the \textsc{cpt} basis, we also find that the pulse results in
+    population trapping in the dark state, which does not interact with the
+    fields, and so we expect the reduction in absorption to be short-lived.
+
+    These findings are consistent with the observed signal increase in the probe
+    beam during the early part of the pulse. It does not, however, explain the
+    increase in the signal response with increased temperature. For a complete
+    understanding of the behaviour, we will next move on to considering the
+    effects of pulse propagation and investigate what would happen if we extend the simulations to longer propagation distances.
+
+    
 
 
