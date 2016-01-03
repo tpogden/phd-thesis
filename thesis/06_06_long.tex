@@ -38,15 +38,16 @@
     \end{figure}
 
     In figure \ref{fig:pulse_cw_08pi_18pi} we present numerical results for the
-    \textsc{cw}/pulse scheme in a medium with absorption coefficients set at $N
-    g_{01} = N g_{02} = \unit[2\pi~10^3]{\Gamma/L}$. This is an order of
-    magnitude larger than those representing the thin cell experiments, and
-    therefore represents a longer distance of propagation. The coupling input
-    pulses are Gaussians of width $\tau_w = $ \unit[0.01]{$\tau_\Gamma$} and
-    have pulse areas of (a) $0.8 \pi$ (corresponding to a peak $\Omega_p =
-    \unit[2\pi~28]{\Gamma}$) and (b) $1.8 \pi$ (a peak $\Omega_p =
-    \unit[2\pi~62]{\Gamma}$). In both cases the \textsc{cw} probe is strong with
-    Rabi frequency $\Omega_p = \unit[2\pi~10]{\Gamma}$.
+    \textsc{cw} probe, coupling pulse scheme in a medium with absorption
+    coefficients set at $N g_{01} = N g_{02} = \unit[2\pi~10^3]{\Gamma/L}$. This
+    is an order of magnitude larger than those representing the thin cell
+    experiments, and therefore represents a longer distance of propagation. The
+    coupling input pulses are Gaussians of width $\tau_w = $
+    \unit[0.01]{$\tau_\Gamma$} and have pulse areas of (a) $0.8 \pi$
+    (corresponding to a peak $\Omega_c = \unit[2\pi~28]{\Gamma}$) and (b) $1.8
+    \pi$ (a peak $\Omega_c = \unit[2\pi~62]{\Gamma}$). In both cases the
+    \textsc{cw} probe is strong with Rabi frequency $\Omega_p =
+    \unit[2\pi~10]{\Gamma}$.
 
     In figure \ref{fig:pulse_cw_08pi_18pi}(a) we see that for the $0.8 \pi$ pulse both
     the \textsc{cw} probe and the coupling pulse are absorbed close to the front
@@ -96,5 +97,72 @@
 
     In figure \ref{fig:pulse_cw_4pi_cmap}, for the $4.5 \pi$ pulse, we see the
     coupling pulse break apart as we've seen previously. Again we see that the
-    pulse kicks up a simultaneous pulse in the probe field, and this is carried
-    mostly by the first resultant $2 \pi$ pulse.
+    pulse kicks up a simultaneous pulse in the probe field as the absorption is
+    initially reduced, which allows a small pulse area to move through, and this
+    is carried on by the first resultant $2 \pi$ pulse.
+
+    We may understand the reason that only one pulse propagates in the probe
+    field by considering the evolution of the off-diagonal matrix elements we
+    presented in figure \ref{fig:sim_0703_temp_210C_build0_coh}. For every two
+    oscillations in $\rho_{02}$, the system evolves through one oscillation in
+    $\rho_{01}$. This oscillation forms the probe component of a pulse that
+    matches with the first coupling pulse and propagates as a simulton.
+
+    \begin{figure}%[h]
+    \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee_sit_plot_65pi_Ng1e4_fig1.pdf}
+    \caption{
+    Propagation of a Gaussian $6.5 \pi$ input coupling pulse with width
+    \unit[$0.01$]{$\tau_\Gamma$} through the V-type medium addressed by a
+    $\unit[10]{\Gamma}$ \textsc{cw} probe. (Top left) Propagation profile of the
+    probe (green) and coupling (blue) fields. (Bottom left) Pulse areas of the
+    fields and the total area (red dashed). (Right) Colourmaps of the real part
+    of the complex Rabi frequencies $\Omega_{p}$ and $\Omega_{c}$.
+    }
+    \label{fig:pulse_cw_6pi_cmap}
+    \end{figure}
+
+    In figure \ref{fig:pulse_cw_6pi_cmap}, for the $6.5 \pi$ pulse, we see that the coupling pulse breaks into three resultant pulses as we'd expect and the kicked up pulse area in the probe field is carried mostly by the first and third resultant $2 \pi$ pulses.
+
+    [TODO: Clarify the argument.]
+
+    These demonstrative simulations provide an interesting result: a portion of
+    the \textsc{cw} probe field is in fact picked up by the strong pulse and
+    carried along as a simultaneous pulse with the same width, at the same
+    velocity, and capable of propagating over long distances.
+
+  \subsection{Comparison with Experimental Data}
+
+    The discovery that a strong coupling pulse has the effect of causing a long-
+    distance propagating soliton in the \textsc{cw} probe leads us to consider
+    the experimental results from the thin cell, using the parameters of section
+    \ref{sec:simultons_experiment}, but imagining that the cell is longer.
+    Recall that in the case of transitions on the the rubidium \textsc{d1} and
+    \textsc{d2} lines we have distinct values for $g_{01}$ and $g_{02}$, as they
+    are proportional to the square of the respective dipole moments, $d_{0j}^2$.
+    This may affect the ability of the pulses to match and propagate.
+
+    \begin{figure}[h]
+      \includegraphics[width=\linewidth]
+        {figs/06_simultons/mb_vee2g_15c_130p_0330t_230C_sb50_120vel010_10_050um_fig1.pdf}
+      \caption{
+      (Top) Comparison of numerical results (red) with experimental data (blue
+      circles) for the normalised transmitted probe signal. The measured coupling
+      pulse signal (grey filled area) has a width $\tau_w = $ \unit[$0.80$]{ns} $
+      \equiv $ \unit[$0.029$]{$\Gamma_\tau$} in each case. The temperature is
+      \unit[$230$]{\textdegree C}. (Middle) Colour map of the real part of the
+      complex Rabi frequency for the probe field. The red dotted line marks $z =
+      1L$. (Bottom) Colour map of the real part of the complex Rabi frequency for
+      the coupling pulse.
+      } 
+      \label{fig:exp_result_single} 
+    \end{figure}
+
+    In figure \ref{fig:exp_result_single} we present again the comparison of
+    numerical result and experimental data shown in figure
+    \ref{fig:sim_data_0703_temp_210C}. In the experiment the temperature $T =
+    \unit[230]{\textrm{\textdegree C}}$, and the peak pulse power is
+    \unit[$85$]{mW}, and the same parameters are simulated. We again present the
+    real part of $\Omega_p$ and $\Omega_c$ but continue the simulation over a
+    longer distance, imagining that the cell is much longer at \unit[$50$]{$\mu
+    m$} $ \equiv$ \unit[$25$]{$L$}. This will allow us to predict the long-
+    distance behaviour.
