@@ -72,7 +72,6 @@
     \unit[$0.029$]{$\tau$} in each case, and the \unit[100]{mW} pulse envelope
     is shown in each subfigure. The temperature is fixed at
     \unit[$200$]{\textdegree C}.
-    [TODO: Replace with version from paper.]
     } 
     \label{fig:exp_result_power_dep} 
     \end{figure}
@@ -86,9 +85,14 @@
     and coupling Rabi frequencies for the atom-light interaction in the cell is
     difficult to determine due to the focussing effect of the cell windows. The
     peak Rabi frequency in the simulation is therefore fitted for that of the
-    \unit[100]{mW} data, at $\Omega_c = \unit[2\pi~140]{\Gamma}$. [TODO Explain
-    why this is realistic]. The Rabi frequencies for other input intensities are
-    derived from this value, using the relationship $\Omega \propto \sqrt{I}$.
+    \unit[100]{mW} data, at $\Omega_c = \unit[2\pi~140]{\Gamma}$.  This value is
+    approximately half of that which we calculate directly from the laser power,
+    beam waist and transition dipole matrix element for $^{85}$Rb. The
+    difference is reasonable if we take into account our uncertainty in the
+    field amplitude at the site of the atoms due to beam focussing as well as
+    the effective \textsc{tdme} due to hyperfine degeneracy (we will discuss
+    this in section \ref{sec:simultons_long}). The Rabi frequencies for other
+    input intensities are derived from the \unit[100]{mW} value, following the relationship $\Omega \propto \sqrt{I}$.
 
     The simulation and experimental data are normalised to the peak intensity in
     response to the \unit[100]{mW} run. The response peaks at lower powers are
@@ -113,7 +117,6 @@
     shown for comparison, has a width $\tau_w = $ \unit[$0.80$]{ns} $ \equiv $
     \unit[$0.029$]{$\Gamma$} in each case. The coupling pulse power is
     \unit[$85$]{mW}.
-    [TODO: Replace with version from paper.]
     } 
     \label{fig:exp_result_temp_dep} 
     \end{figure}
