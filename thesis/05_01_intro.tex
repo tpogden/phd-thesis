@@ -1,0 +1,26 @@
+\section{Introduction}
+  \label{sec:twophoton_intro}
+
+    In keeping with the theme of atom-light interactions beyond linear regimes,
+    in this chapter we present a theoretical study of the interaction of a high-
+    intensity beam with a thermal vapour of rubidium. Specifically, we
+    investigate fluorescence from high-level states, observed in scans across
+    the \textsc{d2} spectral lines. Recent experimental work\cite{Weller2013}
+    found dramatic enhancement of this fluorescence above a critical density,
+    indicating an increase in population transfer from the ground state to the
+    higher $5\rm{d}$ states.
+
+    The high intensity of the beam makes invalid any recourse to the weak probe
+    approximation and necessitates the consideration of the significant
+    mechanisms of power broadening and hyperfine optical pumping. We must also
+    in our model take into account Doppler broadening due to the motion of
+    thermal atoms in the cell.
+
+    The combination of hyperfine pumping and the finite transit time of 
+    non-stationary atoms in the beam also prevents us from simply taking the 
+    steady-state atomic response: we must solve for quantum evolution of the 
+    atomic system via the density matrix. The computational model here developed
+    to study the system dynamics uses an exponential series solver for the
+    Lindblad master equation (\ref{eqn:lindblad}) over the many-level basis of
+    hyperfine angular momentum sublevels, along with parallel computation across
+    the range of detunings.
