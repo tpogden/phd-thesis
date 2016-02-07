@@ -1,10 +1,96 @@
 \section{Storage \& Retreival of Dark-State Polaritons}
   \label{sec:polaritons_storage}
 
-    \begin{figure}[h]
+    We can look at the propagation of the probe pulse through the \textsc{eit}
+    medium from the perspective of the atoms. Before the pulse arrives at an
+    atom at a position $z$ in the medium, the atom has been optically pumped
+    into the ground state $\Ket{0}$ by the coupling field. At this point the
+    state is equivalent to the dark state described in equation
+    \ref{eqn:lambda_eigvects}. As the leading edge of the pulse hits the atom,
+    it remains in the dark state but transfers a component of its wavevector
+    into a superposition between states $\Ket{0}$ and $\Ket{2}$. In this way
+    energy is transferred from the probe into the medium. As the pulse reaches
+    its peak and the trailing edge leaves the atom, that energy is returned to
+    the pulse.
+
+    Fleischhauer and Lukin introduced a useful formalism for describing
+    \textsc{eit} medium with a quasiparticle known as the \textit{dark state
+    polariton}. We define a collective mixing angle $\vartheta$ via
+    \begin{equation}
+      \tan{\vartheta}(z, \tau) = \frac{\sqrt{Ng}}{\Omega_D(z, \tau)}
+    \end{equation}
+    and then the dark polariton field envelope $\Omega_D$ is given by
+    \begin{equation}
+      \Omega_D(z,\tau) = \cos{\vartheta}(z, \tau)~\Omega_p(z, \tau) - 
+        \sin{\vartheta}(z, \tau) ~ \sqrt{Ng} \rho_{20}(z, \tau).
+    \end{equation}
+    The dark state polariton quasiparticle thus describes the propagation in
+    terms of a coherent mixture of the electromagnetic field with atomic spin
+    wave excitation.
+    
+    In the linear regime and on resonance it can be shown[ref FQOQI] that
+    $\Omega_D$ obeys 
+    \begin{equation}
+      \left[ \frac{\partial}{\partial t} + c \cos^2 \vartheta 
+      \frac{\partial}{\partial z} \right] \Omega_D = 0,
+    \end{equation}
+    a wave equation describing a shape-preserving propagation with group
+    velocity $v_g = c \cos^2 \vartheta$.
+
+    % \begin{subequations}
+    % \begin{align}
+    %   \Omega_p &= \cos{\vartheta} \Omega_D \\
+    %   \sqrt{Ng} \rho_{20} &= -\sin{\vartheta} \Omega_D
+    % \end{align}
+    % \end{subequations}
+
+  \subsection{Storage \& Retrieval}
+
+    \begin{figure}[]
       \includegraphics[width=\linewidth]
         {figs/04_polaritons/pls_p0_2pi_t1_Ng5e3_c10_gaussian_w0_5_storage_4_fig1.pdf}
-      \caption{}
-      \label{fig:autler_townes}
+      \caption{
+        Simulated absolute value of $\Omega_p(z, \tau)$ for the propagation of a
+        Gaussian pulse with area $\theta_p = $ \unit[0.2]{$\pi$} and
+        \textsc{fwhm} $\tau_w = $ \unit[1]{$\tau_\Gamma$} through the same
+        $\Lambda$-type medium as in figure \ref{fig:pulse_compression}.
+        In this simulation the \textsc{cw} coupling field with $\Omega_c = $
+        \unit[$2\pi~10$]{$\Gamma$} is ramped down at  \unit[4]{$\tau_\Gamma$}
+        and ramped up again at \unit[8]{$\tau_\Gamma$}.
+      }
+      \label{fig:eit_storage}
     \end{figure}
 
+    In figure \ref{fig:eit_storage} we show the results of the simulated
+    propagation of the same probe pulse as we considered in figure
+    \ref{fig:pulse_compression}, a Gaussian with area $\theta_p = $
+    \unit[0.2]{$\pi$} and \textsc{fwhm} $\tau_w = $ \unit[1]{$\tau_\Gamma$}. The
+    $\Lambda$-type medium also has the same non-uniform density, having a
+    Gaussian profile of \textsc{fwhm} \unit[0.5]{L} and a peak density such that
+    $N_{\mathrm{max}} g = \unit[2\pi~500]{\Gamma/L}$.
+
+    The difference in this case is that the coupling field is time dependent,
+    being ramped down (see equation [REf]) over a period of
+    \unit[0.5]{$\tau_\Gamma$} at $t' = $\unit[4]{$\tau_\Gamma$} and ramped up
+    again at $t' = $\unit[8]{$\tau_\Gamma$}.
+
+    We see that the effect is that the pulse envelope vanishes as the coupling
+    field is ramped down, but returns dramatically, with the same profile, as
+    the coupling field is ramped back up. It appears as though the light has
+    been `stopped' by the medium before being allowed to continue on its way. We
+    can understand this behaviour by considering the propagation of the dark
+    state polariton in this system.
+
+
+
+
+    \begin{figure}[h]
+      \includegraphics[width=\linewidth]
+        {figs/04_polaritons/pls_p0_2pi_t1_Ng5e3_c10_gaussian_w0_5_storage_5_fig4.pdf}
+      \caption{
+      }
+
+      \label{fig:dark_state_components}
+    \end{figure}
+
+  \subsection{Inhomogeneous Broadening}

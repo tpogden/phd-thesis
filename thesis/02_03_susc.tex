@@ -104,7 +104,7 @@
     \end{equation}
     This first-order differential equation in $z$ has the analytical solution 
     \begin{equation}
-      \mathcal{E}(z, \omega) = \ee^{\ii \tfrac{k}{2} \chi z}.
+      \mathcal{E}(z, \omega) = \mathcal{E}(0, \omega) \ee^{\ii \tfrac{k}{2} \chi z}.
     \end{equation}
 
     Having determined an expression for the electric field envelope in terms of
@@ -144,11 +144,12 @@
     that the result is as for propagation in free space but with the vacuum
     speed $c$ replaced with a general phase velocity      
     \begin{equation}
-        v_p = \frac{c}{\sqrt{1 + \chi}} = \frac{c}{n}
+        v_p = \frac{c}{\sqrt{1 + \Re \left[ \chi \right] }} = \frac{c}{n}
+        \label{eqn:phase_vel_refr}
     \end{equation}
     where $n$ is the refractive index, familiar from geometrical optics. In most
-    linear media $\chi$ is positive, so light travels more slowly in the
-    medium.\cite{James1992}
+    linear media $\Re \left[ \chi \right]$ is positive, so light travels more
+    slowly in the medium.\cite{James1992}
 
     This leads us to consider what this velocity represents, considering that
     photons are massless and must travel at $c$.\cite{feynman1963feynman}. The
