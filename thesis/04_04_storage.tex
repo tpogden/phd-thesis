@@ -26,7 +26,12 @@
     \end{equation}
     The dark state polariton quasiparticle thus describes the propagation in
     terms of a coherent mixture of the electromagnetic field with atomic spin
-    wave excitation.
+    wave excitation. 
+
+    The collective mixing angle tells us how much of the polariton is stored in
+    the field and how much in the spin wave. For A mixing angle $\vartheta = 0$,
+    all of the energy is in the field. For $\vartheta = \pi/2$, all of polariton
+    energy is in the spin wave.
     
     In the linear regime and on resonance it can be shown[ref FQOQI] that
     $\Omega_D$ obeys 
@@ -77,20 +82,47 @@
     We see that the effect is that the pulse envelope vanishes as the coupling
     field is ramped down, but returns dramatically, with the same profile, as
     the coupling field is ramped back up. It appears as though the light has
-    been `stopped' by the medium before being allowed to continue on its way. We
-    can understand this behaviour by considering the propagation of the dark
-    state polariton in this system.
+    been `stopped' by the medium before being allowed to continue on its way. 
+
+    We can understand this behaviour by considering the propagation of the dark
+    state polariton in this system. Ramping down the driving field envelope
+    $\Omega_c$ once the pulse is in the medium equates to rotating the mixing
+    angle $\vartheta \rightarrow \pi/2$ such that it is coherently mapped on to
+    the spin wave. At a time later, in this case $t' = $\unit[8]{$\tau_\Gamma$},
+    we ramp up the driving field, rotating the mixing angle back to its previous
+    position, and the field continues on its way. This excitation transfer can
+    be seen in figure \ref{fig:dark_state_components} which shows the separate
+    components of the dark state field.
+
+    Although the storage and retrieval of dark state polaritons is often
+    described as `stopping light', we must be careful to note that it is really
+    a coherent transfer of energy to the medium. No elecromagnetic field
+    envelope remains at the limit $\vartheta = \pi/2$, so the light itself is
+    not `stopped', it has been transferred into a spin excitation.[ref Fleish
+    and Lukin paper 2000].
+
+    % The storage time is limited by the natural lifetime of the 
 
 
 
 
-    \begin{figure}[h]
+    \begin{figure}[]
       \includegraphics[width=\linewidth]
         {figs/04_polaritons/pls_p0_2pi_t1_Ng5e3_c10_gaussian_w0_5_storage_5_fig4.pdf}
       \caption{
+      Dark state polariton components for the storage and retrieval simulation
+      in figure \ref{fig:eit_storage}. (Top) The field component
+      $\cos{\vartheta}(z, \tau)~\Omega_p(z, \tau)$. (Middle) The spin wave
+      component $-\sin{\vartheta}(z, \tau) ~ \sqrt{Ng} \rho_{20}(z, \tau)$.
+      (Bottom) The total dark state field $\Omega_D(z,\tau)$.
       }
-
       \label{fig:dark_state_components}
     \end{figure}
 
-  \subsection{Inhomogeneous Broadening}
+  % \subsection{Inhomogeneous Broadening}
+
+  - (possibly Doppler broadening)
+
+  - limitations
+
+  - experimental observation.
