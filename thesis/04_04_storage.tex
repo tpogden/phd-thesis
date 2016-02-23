@@ -13,9 +13,9 @@
     its peak and the trailing edge leaves the atom, that energy is returned to
     the pulse.
 
-    Fleischhauer and Lukin introduced a useful formalism for describing
-    \textsc{eit} medium with a quasiparticle known as the \textit{dark state
-    polariton}. We define a collective mixing angle $\vartheta$ via
+    Fleischhauer and Lukin\cite{Fleischhauer2000} introduced a useful formalism
+    for describing \textsc{eit} medium with a quasiparticle known as the \textit
+    {dark-state polariton}. We define a collective mixing angle $\vartheta$ via
     \begin{equation}
       \tan{\vartheta}(z, \tau) = \frac{\sqrt{Ng}}{\Omega_D(z, \tau)}
     \end{equation}
@@ -24,7 +24,7 @@
       \Omega_D(z,\tau) = \cos{\vartheta}(z, \tau)~\Omega_p(z, \tau) - 
         \sin{\vartheta}(z, \tau) ~ \sqrt{Ng} \rho_{20}(z, \tau).
     \end{equation}
-    The dark state polariton quasiparticle thus describes the propagation in
+    The dark-state polariton quasiparticle thus describes the propagation in
     terms of a coherent mixture of the electromagnetic field with atomic spin
     wave excitation. 
 
@@ -33,7 +33,7 @@
     all of the energy is in the field. For $\vartheta = \pi/2$, all of polariton
     energy is in the spin wave.
     
-    In the linear regime and on resonance it can be shown[ref FQOQI] that
+    In the linear regime and on resonance it can be shown\cite{lambropoulos2007fundamentals} that
     $\Omega_D$ obeys 
     \begin{equation}
       \left[ \frac{\partial}{\partial t} + c \cos^2 \vartheta 
@@ -75,7 +75,7 @@
     $N_{\mathrm{max}} g = \unit[2\pi~500]{\Gamma/L}$.
 
     The difference in this case is that the coupling field is time dependent,
-    being ramped down (see equation [REf]) over a period of
+    being ramped down (see equation (\ref{eqn:rampup})) over a period of
     \unit[0.5]{$\tau_\Gamma$} at $t' = $\unit[4]{$\tau_\Gamma$} and ramped up
     again at $t' = $\unit[8]{$\tau_\Gamma$}.
 
@@ -94,17 +94,11 @@
     be seen in figure \ref{fig:dark_state_components} which shows the separate
     components of the dark state field.
 
-    Although the storage and retrieval of dark state polaritons is often
+    Although the storage and retrieval of dark-state polaritons is often
     described as `stopping light', we must be careful to note that it is really
     a coherent transfer of energy to the medium. No elecromagnetic field
     envelope remains at the limit $\vartheta = \pi/2$, so the light itself is
-    not `stopped', it has been transferred into a spin excitation.[ref Fleish
-    and Lukin paper 2000].
-
-    % The storage time is limited by the natural lifetime of the 
-
-
-
+    not `stopped', it has been transferred into a spin excitation.\cite{Fleischhauer2000}
 
     \begin{figure}[]
       \includegraphics[width=\linewidth]
@@ -121,8 +115,22 @@
 
   % \subsection{Inhomogeneous Broadening}
 
-  - (possibly Doppler broadening)
+  % - (possibly Doppler broadening)
 
-  - limitations
+    It is important to consider the limitations of these techniques. First, for
+    \textsc{eit} and associated slow light effect, the duration of the pulse
+    $\tau_w$ must be greater than the reciprocal of the \textsc{eit} bandwidth,
+    so that spectrally it propagates in the transparency   window. Second, for
+    storage of the entire pulse to be possible, the spatial extent of the pulse
+    must be compressed below the length $L$ of the medium, which is possible
+    only if the medium has a sufficiently large optical depth such that $Ng L
+    \gg 1$.\cite{Fleischhauer2005}
 
-  - experimental observation.
+  The first demonstrations of this storage and retrieval technique were made by
+  Liu \etal \cite{Liu2001} and Phillips \etal\cite{Phillips2001}, in which
+  pulses were stored for much longer than the pulse duration. Recent
+  developments in ultracold atomic systems have pushed storage records up to the
+  order of a minute.\cite{Dudin2013}
+
+
+  % - applications (see qu memory review)

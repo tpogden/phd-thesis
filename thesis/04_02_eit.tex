@@ -27,7 +27,7 @@
     respective field polarisation.
 
     We then find the Hamiltonian for the $\Lambda$ system interacting with this
-    pair of classical fields to be [REF geo-banachle or eit review]
+    pair of classical fields to be\cite{Fleischhauer2005}
     \begin{equation}
       \mathcal{H}_\mathrm{\Lambda} = -\hbar \left[ \Delta_p \sigma_{11} + 
         (\Delta_p - \Delta_c) \sigma_{22} \right] - \hbar \left[ \Omega_p 
@@ -100,15 +100,16 @@
     $\Omega_c = 0$ gives us back the two-level lineshape equation
     (\ref{eqn:weak_lineshape}).
 
-    In figure \ref{fig:autler_townes} we show the linesahpes calcultaed by
+    In figure \ref{fig:autler_townes} we show the lineshapes calculated by
     solving the steady-state Lindblad equations --- \ie setting the time
     derivatives in equations (\ref{eqn:lambda_dm_equations}) to zero. We see
     that the effect of the strong coupling field is to split the resonance peak
-    by $\Omega_c$. This is the Autler-Townes splitting [REF]. The probe
-    coherence $\Im \left[ \rho_{01} \right]$ is, in contrast to the two-level
-    lineshape, zero on resonance, and as we know from equation [REF] that this
-    is proportional to the absorption, we have a frequency window around
-    resonance in which light incident on the medium will not be absorbed.
+    by $\Omega_c$. This is the Autler-Townes splitting\cite{Autler1955}. The
+    probe coherence $\Im \left[ \rho_{01} \right]$ is, in contrast to the two-
+    level lineshape, zero on resonance, and as we know from equation
+    (\ref{eqn:beer_law}) that this is proportional to the absorption, we have a
+    frequency window around resonance in which light incident on the medium will
+    not be absorbed.
 
     \begin{figure}[h]
       \includegraphics[width=\linewidth]
@@ -118,7 +119,7 @@
       Steady-state values for density matrix elements against probe detuning for
       the $\Lambda$ system, with $\Omega_p =
       \unit[2\pi~\times~10^{-3}]{\Gamma_{01}}$. For the solid line $\Omega_c =
-      \unit[2\pi~\times~1]{\Gamma_{01}}$, for the dotted line $\Omega_c =
+      \unit[2\pi~\times~1]{\Gamma_{01}}$, for the dashed line $\Omega_c =
       \unit[2\pi~\times~5]{\Gamma_{01}}$, both on resonance. (Top, blue) The
       excited state population $\rho_{11}$. (Middle, red) The coupled lower
       state population $\rho_{22}$. (Bottom, purple) The real part of the
@@ -132,7 +133,11 @@
     In figure \ref{fig:autler_townes_narrow} we show the same lineshapes with a
     smaller coupling field Rabi frequency $\Omega_c$. Even then we see a narrow
     window on resonance. This absorption window is the effect known as
-    electromagnetically induced transparency (\textsc{eit}).
+    electromagnetically induced transparency (\textsc{eit}). Though objectively
+    separating observations of Autler-Townes splitting from \textsc{eit} in
+    experiment can be difficult\cite{Anisimov2011}, they are distinguished in
+    that only \textsc{eit} provides strong transparency for a weak coupling
+    field due to the Fano interference.\cite{Fano1961}
 
     \begin{figure}[h]
       \includegraphics[width=\linewidth]
@@ -154,9 +159,10 @@
 
     To investigate the cause of this transparency effect, we write the
     Hamiltonian in the so-called coherent population trapping (\textsc{cpt})
-    basis by taking the eigenstates of $\mathcal{H}_\Lambda$. Following [FQOQI],
-    we solve for $\mathcal{H}_\Lambda \Ket{\phi} = \lambda \Ket{\phi}$ with
-    equal detunings $\Delta := \Delta_p = \Delta_c$ to find eigenvalues
+    basis by taking the eigenstates of $\mathcal{H}_\Lambda$. Following
+    Fleischhauer et al.\cite{Fleischhauer2005}, we solve for $\mathcal{H}_\Lambda
+    \Ket{\phi} = \lambda \Ket{\phi}$ with equal detunings $\Delta := \Delta_p =
+    \Delta_c$ to find eigenvalues
     \begin{subequations}
       \begin{align}
       \lambda_0 &= 0 \\
@@ -186,6 +192,8 @@
     excitation and the probe laser is not absorbed. We thus see that
     \textsc{eit} is a quantal coherent phenomenon.
 
-    [TODO write a sentence on experimental observation, Harris]
+    
 
-    \cite{Harris1990, Boller1991}
+    % [TODO write a sentence on experimental observation, Harris]
+
+    % \cite{Harris1990, Boller1991}
