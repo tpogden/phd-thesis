@@ -66,6 +66,7 @@
     \begin{equation}
       \frac{\partial}{\partial z}\mathcal{E}(z,t') = 
           \ii N(z) \frac{k}{2 \varepsilon_0} d_{01} \cdot \rho_{01}(z,t').
+      \label{eqn:twolevel_field_eqn}
     \end{equation}
     It is useful to write the propagation now in terms of the Rabi frequency
     \begin{equation}
@@ -130,7 +131,9 @@
     the time of the input. We thus set the time derivative in equation
     (\ref{eqn:twolevel_coh_master_eqn}) to zero.
 
-    The initial condition is that all of the atomic population starts in the ground state. For a weak field we may also assume that population transfer is negligible such that $\rho_{11} = 0$.
+    The initial condition is that all of the atomic population starts in the
+    ground state. For a weak field we may also assume that population transfer
+    is negligible such that $\rho_{11} = 0$.
 
     Under these weak field approximations, we may thus derive the steady state,
     weak field lineshape
@@ -150,7 +153,7 @@
     The Gaussian pulsed input field is defined by
     \begin{equation}
       \Omega(t) = \Omega_{0} \exp \left[ -4 \log 2 \left( \frac{t - t_0}{t_w}
-                              \right) \right]
+                              \right)^2 \right]
       \label{eqn:gaussian}
     \end{equation}
     where $\Omega_{0}$ is the peak input Rabi frequency, $t_0$ is the time at

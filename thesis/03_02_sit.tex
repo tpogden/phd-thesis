@@ -14,7 +14,7 @@
     There exists another set of conditions, however, that has proved susceptible
     to analytic description, and that is the case of short, strong pulses of
     light. By `short' here we specifically mean that the duration of the pulses
-    is much shorter than the natural decay lifetime of the excited state, i.e.
+    is much shorter than the natural decay lifetime of the excited state, \ie
     $\tau_w \ll \tau_\Gamma$. Strong, resonant interaction with light on this
     timescale results in a response from the atoms that is definitively 
     non-classical, as the interaction all happens within the phase memory of the
@@ -22,16 +22,16 @@
     the propagation behaviour.
 
     Neglecting damping in this way, it must be the case that the total energy of
-    the macroscopic atom-light system is a conserved quantity. We can express
-    this conservation as
+    the macroscopic atom-light system is a conserved quantity. This conservation
+    law may be expressed as\cite{allen1975optical}
     \begin{equation}
       \left[ \frac{\partial}{\partial z} + 
       \frac{1}{c}\frac{\partial}{\partial t} \right]
       \lvert \mathcal{E} \rvert^2 + \frac{\partial U}{\partial t} = 0
     \end{equation}
-    where $U$ is the matter energy density given by\cite{allen1975optical}
+    where $U$ is the matter energy density given by
     \begin{equation}
-      U = N \frac{\hbar \omega}{2} \int_{-\infty}^{\infty} \rho_{11} f(\Delta)  
+      U = N \hbar \omega_0 \int_{-\infty}^{\infty} \rho_{11} f(\Delta)  
       \dd \Delta.
     \end{equation}
     We must also have conservation of probability in the density matrix,
@@ -50,8 +50,8 @@
     A central tool for describing the propagation of short, strong pulses is the
     nonlinear \textit{area theorem}.\cite{McCall1969} The concept of the pulse
     area generalises the Rabi frequency from steady fields such that it is
-    useful for the description of time-dependent field envelopes. We define the
-    pulse area by
+    useful for the description of time-dependent field envelopes. The
+    pulse area is defined by
     \begin{equation}
       \theta(z) = \int^{\infty}_{-\infty} \Omega(z, \tau) \dd \tau
       \label{eqn:pulse_area}
@@ -60,18 +60,19 @@
     pulse.
 
     Inserting this definition for $\theta(z)$ into the expression we derived for
-    the time-evolution of the electric field envelope ([REF]) and taking the
-    analytic expression for Rabi oscillation of the atomic coherence $\rho_{01}$
-    on resonance [REF], it is possible to derive an expression for the evolution
-    of the pulse area as the pulse propagates through the medium
+    the time-evolution of the electric field envelope in equation 
+    (\ref{eqn:twolevel_field_eqn}) with an analytic expression for the Rabi
+    oscillation of the atomic coherence $\rho_{01}$ on resonance, it is possible
+    to derive an expression for the evolution of the pulse area as the pulse
+    propagates through the medium
     \begin{equation}
       \frac{\partial}{\partial z} \theta(z) = -\frac{\alpha}{2} \sin{\theta(z)}
       \label{eqn:area_theorem}
     \end{equation}
     where $\alpha$ is the resonant absorption coefficient defined in equation
     (\ref{eqn:beer_law}). In the case of weak fields such that $\theta(z) \ll 1$
-    we may approximate $\sin{\theta(z)} = \theta$ and obtain the Beer absorption
-    law, which we thus see is generalised by the area theorem. [TODO FIX REFS]
+    we may approximate $\sin{\theta(z)} = \theta(z)$ and obtain the Beer absorption
+    law, which we thus see is generalised by the area theorem.
 
   \subsection{Self-Induced Transparency} 
 
@@ -117,11 +118,15 @@
     The group velocity, relative to the speed-of-light reference frame, is given
     by
     \begin{equation}
-      v_g = \frac{2}{Ng \cdot t_s^2}
+      v_g = \frac{2}{Ng \cdot \tau_s^2}
       \label{eqn:soliton_group_velocity}
     \end{equation}
+
     which means that the exit of the envelope from the medium is delayed
-    relative to an equal travel distance in vacuo by $L/v_g$.
+    relative to an equal travel distance in vacuo by $L/v_g$. Recall that in
+    this reference frame the speed of light in vacuum is effectively infinite,
+    with the pulse arriving at each spatial point $z$ at the same retarded time
+    $\tau$.
 
     \begin{figure}[]
       \includegraphics[width=\linewidth]
@@ -155,7 +160,7 @@
       Colormap showing the same simulated results shown in figure
       \ref{fig:2pi_sech_simulton_3d}. The dotted lines at $z = \unit[0, 1]{L}$
       mark the start and end of the medium. The dashed line indicates the
-      analytic pulse velocity given in equation
+      predicted group velocity given in equation
       (\ref{eqn:soliton_group_velocity}).
       }
       \label{fig:2pi_sech_simulton}
@@ -164,18 +169,18 @@
     In figure \ref{fig:2pi_sech_simulton} we show the same result as a colour
     map, from which we can more clearly see both the consistency of the pulse
     profile as it propagates through the medium and the slower group velocity.
-    The analytic pulse velocity, given in equation
-    (\ref{eqn:soliton_group_velocity}), is shown by the dotted line, and we see
+    The motion corresponding to the analytic group velocity given in equation
+    (\ref{eqn:soliton_group_velocity}) is shown by the dotted line, and we see
     that the pulse peak matches that result.
 
     \begin{figure}[]
       \includegraphics[width=\linewidth]
         {figs/03_nonlinear/coh_sech_2_0pi_fwhm0_010_Ng01000_fig2.pdf}
       \caption{
-        Simluated excited state population $\rho_{11}$ for the propagation of a
+        Simulated excited state population $\rho_{11}$ for the propagation of a
         $\theta = 2\pi$ sech pulse of \textsc{fwhm} $\tau_w = $
-        \unit[0.01]{$\tau_\Gamma$} through a medium with constant density such
-        that $Ng = \unit[2\pi~10^3]{\Gamma/L}$.
+        \unit[0.01]{$\tau_\Gamma$} through a medium with constant density for $0
+        \le z \le L$ such that $Ng = \unit[2\pi~10^3]{\Gamma/L}$.
       }
       \label{fig:2pi_sech_simulton_pop}
     \end{figure}
@@ -184,10 +189,10 @@
       \includegraphics[width=\linewidth]
         {figs/03_nonlinear/coh_sech_2_0pi_fwhm0_010_Ng01000_fig3.pdf}
       \caption{
-        Simluated imaginary coherence $\Im{\rho_{01}}$ for the propagation of a
+        Simulated imaginary coherence $\Im{\rho_{01}}$ for the propagation of a
         $\theta = 2\pi$ sech pulse of \textsc{fwhm} $\tau_w = $
-        \unit[0.01]{$\tau_\Gamma$} through a medium with constant
-        density such that $Ng = \unit[2\pi~10^3]{\Gamma/L}$.
+        \unit[0.01]{$\tau_\Gamma$} through a medium with constant density for $0
+        \le z \le L$ such that $Ng = \unit[2\pi~10^3]{\Gamma/L}$.
       }
       \label{fig:2pi_sech_simulton_coh}
     \end{figure}
@@ -255,14 +260,14 @@
       \label{fig:sit_08_18_nodecay}
     \end{figure}
 
-    In figure \label{fig:ref} we demonstrate the effect of \textsc{sit} for the
-    propagation of resonant input pulses of $0.8 \pi$ and $1.8 \pi$
-    respectively. Both input pulses are Gaussians of width $\tau_w = $
+    In figure \ref{fig:sit_08_18_nodecay} we demonstrate the effect of
+    \textsc{sit} for the propagation of resonant input pulses of $0.8 \pi$ and
+    $1.8 \pi$ respectively. Both input pulses are Gaussians of width $\tau_w = $
     \unit[0.01]{$\tau_\Gamma$} and the medium is such that $Ng_{01} =
     \unit[2\pi~10^3]{\Gamma/L}$.
 
     We see that for the $0.8 \pi$ pulse in figure \ref{fig:sit_08_18_nodecay}
-    (a) the area $\theta(z)$ rapidly attenuates soon after entering the medium.
+    (a) the area $\theta(z)$ rapidly decreased soon after entering the medium.
     The pulse energy is not entirely absorbed, however. The pulse bandwidth is
     much wider than the absorption window but still prone to dispersion and so
     the envelope is distorted and we see high-frequency ringing through the
@@ -271,10 +276,11 @@
     In clear contrast, for the $1.8 \pi$ pulse in figure
     \ref{fig:sit_08_18_nodecay} (b) the area $\theta(z)$ tends to $2\pi$ and the
     profile steepens and narrows into the sech-type soliton which propagates
-    without absorption. We thus observe that the input pulse \textit{does not
-    need} to be of the sech profile to be capable of propagating as an optical
-    soliton as the medium can shape the pulse into that profile as it propagates
-    if the pulse area $\theta(z) > \pi$.
+    without absorption, though there is ringing from a small component of the
+    pulse as it is reshaped. We thus observe that the input pulse \textit{does
+    not need} to be of the sech profile to be capable of propagating as an
+    optical soliton as the medium can shape the pulse into that profile as it
+    propagates if the pulse area $\theta(z) > \pi$.\cite{allen1975optical}
 
     We note again that the group velocity $v_g$ is lower than $c$ due to the
     energy of the field spending some amount of its time as an excitation in the
@@ -295,7 +301,7 @@
       \caption{
       Propagation of a $4 \pi$ sech-type pulse. (main colourmap) Absolute value
       of the complex Rabi frequency $\Omega(z, \tau)$. The dashed line indicates
-      the analytic pulse velocity given in equation
+      the analytic pulse velocity given by equation
       (\ref{eqn:soliton_group_velocity}). (inset \textsc{3d}) Propagation
       profile of the pulse. (left) pulse area $\theta(z)$.
       }
@@ -330,7 +336,7 @@
       \includegraphics[width=\linewidth]
         {figs/03_nonlinear/coh_sech_6_0pi_fwhm0_020_Ng01000_fig3.pdf}
       \caption{
-        Simluated excited state population $\rho_{11}$ for the propagation of a
+        Simulated excited state population $\rho_{11}$ for the propagation of a
         $\theta = 6\pi$ sech pulse of \textsc{fwhm} $\tau_w = $
         \unit[0.02]{$\tau_\Gamma$} through a medium with constant density such
         that $Ng = \unit[2\pi~10^3]{\Gamma/L}$.
