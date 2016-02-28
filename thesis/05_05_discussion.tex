@@ -1,2 +1,44 @@
 \section{Discussion}
   \label{sec:twophoton_discussion}
+
+  The theoretical model built up in this chapter of light interacting with the
+  manifolds of the rubidium atom, including degenerate hyperfine structure,
+  allows us to investigate transfer of population from the ground state to
+  excited levels. By going beyond the weak probe approximation we can properly
+  simulate the atom-light interaction at the high beam powers used in the
+  motivating experiments, far beyond saturation intensity.
+
+  The model proceeds by solving the Lindblad master equation for density matrix
+  elements covering the basis of hyperfine sublevels over a time period of
+  \unit[2]{$\mu $s} representing the average transit time of atoms in the beam.
+  The system is then solved over a range of detunings covering the \textsc{d2}
+  lines to simulate a scan of the probe beam.
+
+  Agreement with results of the ElecSus model for low intensities, where the
+  weak probe approximation is valid, gives us confidence in the model to take it
+  to higher intensities. The results obtained at those higher intensities
+  suggest that two-photon excitation cannot be responsible for the observed
+  fluorescence. At intensities where the power broadening is small enough to be
+  compatible with the experimental data (on the order of $I =
+  \unit[100]{W/cm^2}$) there is negligible (on the order of $10^{-11}$) transfer
+  of population to the $6$P manifold via two-photon excitation of the $5$D state. On
+  the other hand, at higher intensities where the transfer of population might
+  be considered significant, power broadening would completely wash out the
+  spectral features observed. 
+
+  We can thus rule out two-photon excitation as a mechanism for the
+  fluorescence. One possible mechanism which might next be considered is energy
+  pooling, whereby one atom transfers to a higher energy state in an elastic
+  collision\cite{Namiotka1997,Bearman1978}. Another is a cooperative
+  effect\cite{Bettles2016,Bettles2015}, whereby the dipole- dipole interaction
+  between atoms in proximity in an optical field may increase dramatically when
+  they are closer than a critical distance $\lambda/2\pi$, where $\lambda$ is
+  the resonant wavelength of the field.
+
+  The \textit{OpticalBloch} simulation package developed for this calculation
+  for solving for the time-evolution of atomic systems, including the full
+  hyperfine structure and all the relevant angular momentum factors in
+  calculating transition dipole matrix elements, is available for future studies
+  in many applications involving vapours of alkali metals beyond the weak probe,
+  and can easily be extended to consider the including of the Zeeman effect due
+  to the application of magnetic fields.

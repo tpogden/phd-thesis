@@ -119,11 +119,10 @@
     ($j\!=\!0$) this is the input boundary condition, illustrated in red in
     figure \ref{fig:mb_scheme}. Next (lines 2--4 in the pseudocode) we loop over
     the velocity classes $l$ and pass the detuning $\Delta_l$, the field profile
-    $\mathcal{E}_{j,k}$ and an initial condition ($\rho_\mathrm{init}$) to the
-    Lindblad solver described in Appendix \ref{apx:ob_eqns}. That solver
-    contains an implicit loop through the $N_t$ timesteps, and integrates the
-    Lindblad equation to find the density matrix at each of those timesteps
-    $t'_k$.
+    $\mathcal{E}_{j,k}$ and an initial condition ($\rho_\mathrm{init}$) to an
+    \textsc{ode} solver for the Lindblad master equation. That solver contains
+    an implicit loop through the $N_t$ timesteps, and integrates the Lindblad
+    equation to find the density matrix at each of those timesteps $t'_k$.
 
     At this point we have solved for the density matrix $\rho^l_j$ at the
     spacestep $z_j$ for each time $t_k$ and for atoms in each velocity class
@@ -181,16 +180,15 @@
     \subsection{Code Implementation}
 
     The algorithm for solving the \textsc{mb} equations was implemented in
-    Python using the SciPy scientific computing
+    Python using the \textit{SciPy} scientific computing
     stack\cite{VanDerWalt2011,Jones}.
 
-    The code uses the \texttt{OB} class of the OpticalBloch package described
-    in appendix \ref{apx:ob_eqns} in order to define the atom-light
-    interaction and solve the Lindblad equation for instances representing
-    various atomic systems, with few-level or with full angular momentum
-    structure. The QuTiP library\cite{Nation2013} is used for quantum state
-    and operator objects and its master equation solver for dynamics of open
-    quantum systems.
+    The code uses the \texttt{OB} class of the \textit{OpticalBloch} package in
+    order to define the atom-light interaction and solve the Lindblad equation
+    for instances representing various atomic systems, with few-level or with
+    full angular momentum structure. The \textit{QuTiP} library\cite{Nation2013}
+    is used for quantum state and operator objects and its master equation
+    solver for dynamics of open quantum systems.
 
   \section{Convergence \& Accuracy}\label{sec:mb_accuracy}
 

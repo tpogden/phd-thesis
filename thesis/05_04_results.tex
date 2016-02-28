@@ -1,2 +1,177 @@
 \section{Numerical Results}
   \label{sec:twophoton_results}
+
+  \subsection{Weak Beam Spectra}
+
+    Before we investigate the effect of a strong field on the atomic medium, it
+    is useful to look at the results of an applied field in the weak probe
+    regime. As discussed in chapter \ref{chp:propagation}, in the weak field it
+    is possible to derive analytic expressions for the spetral Lorentzian (or
+    Voigt, when broadened)  lineshape corresponding to the imaginary part of the
+    coherences and thus for the expected absorption profiles.
+
+    The ElecSus software package\cite{Zentile2015} calculates transmission and
+    susceptibility spectra for weak probes in thermal alkali metal vapours, in
+    excellent agreement with experimental data.\cite{Siddons2008,Weller2011} We
+    use this tool as a reference with which to compare the results for our
+    model at weak field, before we take our model beyond the constraints of the
+    weak probe regime.
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]
+        {figs/05_twophoton/rb87_d2_hf_solve_scan_g2a_fig3.pdf}
+    \includegraphics[width=\linewidth]
+        {figs/05_twophoton/rb87_d2_hf_solve_scan_h1a_fig3.pdf}
+    \caption{
+    Simulated transmission (red) of a weak ($I~=~\unit[10^{-6}]{W~cm^{-2}}$)
+    probe beam scanned across the  $F = 1 \rightarrow F$ \textsc{d2} lines in a
+    \unit[1]{cm}long vapour cell of rubidium 87 is compared with the result of
+    the ElecSus program (grey dashed). Doppler broadening is neglected and the
+    number density $N = \unit[7.5\cdot10^{15}]{m^{-3}}$. The simulated transit
+    time \unit[2]{$\mu$s}.
+    }
+    \label{fig:weak_d2} 
+    \end{figure}
+
+    In figure \ref{fig:weak_d2} we show the results of a simulated scan of a
+    weak probe (with intensity $I = $\unit[$10^{-6}$]{W cm$^{-2}$}) with no
+    Doppler broadening, corresponding to a temperature close to \unit[$0$]{K},
+    but with a number density of $N = \unit[7.5\cdot10^{15}]{m^{-3}}$,
+    corresponding via  vapour pressure equations\cite{Zentile2015} to a
+    temperature $T = \unit[20]{\text{\textdegree C}}$. The removal of broadening
+    is an artificial constraint intended to separate the Lorentzian lineshape of
+    the coherence terms (and thus absorption profile) without needing to include
+    the Gaussian convolution. The simulated length of the medium in this case is
+    \unit[1]{cm}.
+
+    To obtain spectra for closed systems it is typical to compute the density
+    matrix elements in the steady state, \ie by setting  $\partial \rho /
+    \partial t = 0$ in the Lindblad master equation (\ref{eqn:lindblad}). This
+    requires less computation than integrating the differential equations over
+    time, but is not possible in this system because of hyperfine pumping. As $t
+    \rightarrow \infty$, all of the population is pumped to the other ground
+    state. Instead, we solve the master equation up to an average transit time
+    of atoms in the beam, in this case \unit[2]{$\mu$s}, and present the
+    resulting density matrix elements at this point in the time evolution.
+
+    % As we wish to , we 
+
+    The top subplot covers the transition from ground state hyperfine levels $F
+    = 1$ to excited state hyperfine levels $F' = \{ 0, 1, 2 \}$ and the bottom
+    subplot covers the transition from hyperfine levels $F = 2$ to excited state
+    hyperfine levels $F' = \{ 1, 2, 3 \}$. We see good agreement between the
+    optical Bloch model and the ElecSus result for the positions, widths and
+    amplitudes of the absorption troughs.
+
+  \subsection{Strong Beam Spectra}
+
+    Next we move beyond the weak-probe approximation to investigate the response
+    of the atom is to a strong beam, by way of the populations of the hyperfine
+    levels
+    \begin{equation}
+      \rho_{FF} = \sum_{m_F} \Tr \left[ \Ket{F m_F} \Bra{F m_F} \right].
+    \end{equation}
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]{figs/05_twophoton/rb87_d2_hf_solve_scan_h2a_fig1.pdf}
+    \caption{
+    Populations of the $5^2\rm{S}_{\nicefrac{1}{2}}$ ground states (top) and
+    $5^2\rm{P}_{\nicefrac{3}{2}}$ excited states (bottom)  after interaction
+    with a strong beam  scanned across the  $F = 1 \rightarrow F'$ \textsc{d2}
+    lines with a transit time of \unit[2]{$\mu$s}.
+    }
+    \label{fig:strong_d2_f2} 
+    \end{figure}
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]{figs/05_twophoton/rb87_d2_hf_solve_scan_g3a_fig1.pdf}
+    \caption{
+    Populations of the $5^2\rm{S}_{\nicefrac{1}{2}}$ ground states (top) and
+    $5^2\rm{P}_{\nicefrac{3}{2}}$ excited states (bottom)  after interaction
+    with a strong beam scanned across the  $F = 2 \rightarrow F'$ \textsc{d2}
+    lines with a transit time of \unit[2]{$\mu$s}.
+    }
+    \label{fig:strong_d2_f1} 
+    \end{figure}
+
+    Again we'll consider just the $5^2\rm{S}_{\nicefrac{1}{2}}$ ground state
+    manifold and the $5^2\rm{P}_{\nicefrac{3}{2}}$ excited state manifold
+    representing the \textsc{d2} transition. In figures \ref{fig:strong_d2_f1}
+    and \ref{fig:strong_d2_f2} we show the results of simulated scan, again over
+    the \textsc{d2} lines of rubidium 87, but this time with a strong beam of
+    intensity $I = $ \unit[$1$]{W cm$^{-2}$}. This is beyond the saturation
+    intensity and in the regime where power broadening has a significant effect
+    on the transmission profile. The transit time is again \unit[2]{$\mu$s}.
+
+    In figure \ref{fig:strong_d2_f1} we show the populations of the hyperfine
+    $5^2\rm{S}_{\nicefrac{1}{2}}$ ground states and
+    $5^2\rm{P}_{\nicefrac{3}{2}}$ excited states as the probe is scanned across
+    the $F = 1$ to $F' = \{ 0, 1, 2 \}$ transitions. We see that when we are far
+    off-resonance the population remains in the initial state, evenly divided
+    between the two ground state hyperfine levels. As the scan crosses the
+    resonance lines we see population is removed from the $F = 1$ state and
+    populates the excited hyperfine states according to that transition's
+    relative transition strength. The lineshapes are now much broader than the
+    natural linewidth due to power broadening\cite{loudon2000quantum}. The $F' =
+    2$ population has a double- peaked lineshape. This is due to hyperfine
+    pumping saturating this transition at this probe strength, \ie on resonance
+    from $F = 1 \rightarrow F' = 2$ all of the population decays to the $F = 2$
+    state within \unit[2]{$\mu$s} at this intensity such that the population in
+    the $F' = 2$ state is limited.
+
+    In figure \ref{fig:strong_d2_f2} we show the same populations as in figure
+    \ref{fig:strong_d2_f1}, but for the probe scanned across the $F = 2$ to $F'
+    = \{ 1, 2, 3 \}$ transitions. We again see that far off-resonance the
+    populations remain in their initial condition state, evenly split between
+    the two ground state hyperfine levels. As the scan crosses the resonance
+    lines, this time we see conversely that the population is removed from the
+    $F = 2$ state to populate the excited hyperfine states according to the
+    transition strengths. This time it is the $F' = 1$ and $F' = 2$ transitions
+    that are saturated by the hyperfine pumping such that the initial state
+    population is limited on resonance after \unit[2]{$\mu$s} at this intensity.
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]{figs/20_135_placeholder.pdf}
+    \caption{
+    Excited state populations
+    }
+    \label{fig:strong_Dstate_pop} 
+    \end{figure}    
+
+    [TODO describe 5D state pop plot]
+
+  \subsection{Fluorescence with High-Intensity Beam}
+
+    Now that we have investigated population of the
+    $5^2\rm{S}_{\nicefrac{1}{2}}$ hyperfine ground states as the probe is
+    scanned across the \textsc{d2} lines, both for a weak probe and a strong
+    probe, we will move onto adding in the two-photon excited states ---
+    firstly, the $5\rm{D}_{\nicefrac{3}{2}}$ and $5\rm{D}_{\nicefrac{5}{2}}$
+    states coupled near resonance, and the $6\rm{P}_{\nicefrac{1}{2}}$ and
+    $6\rm{P}_{\nicefrac{3}{2}}$ decay channels. Decay form the
+    $6\rm{P}_{\nicefrac{1}{2}}$ state is the source of optical fluorescence at
+    \unit[422]{nm}. We wish to observe if there is \textit{enough} population in
+    these exited states through single-atom processes to account for the
+    fluorescence shown in figure \ref{fig:blue_flourescence}.
+
+    \begin{figure}[]
+    \includegraphics[width=\linewidth]
+        {figs/05_twophoton/rb87_5spd6p_hf_solve_scan_f01_fig2.pdf}
+    \caption{
+    Normalised simulated population of the $6\rm{P}_{\nicefrac{1}{2}}$ state for
+    light input across a GHz detuning range covering the \textsc{d2} lines, and
+    over a range of number densities $N$ (and thus temperatures $T$).
+    [TODO What is the peak?]
+    }
+    \label{fig:blue_plot_model} 
+    \end{figure}
+
+    In figure \ref{fig:blue_plot_model} we show the normalised population of the
+    $6^2\rm{P}_{\nicefrac{1}{2}}$ state as a very strong probe, with $I =
+    \unit[100]{W/cm^2}$, is scanned across the full range of the \textsc{d2}
+    lines. At this intensity we see that the power broadening is such that the
+    hyperfine structure of the excited states is not visible and we see just two
+    peaks representing transition from the $F = 1$ and $F = 2$ ground states.
+
+    The peak population is only on the order of $10^{-11}$, such that we expect
+    one in a hundred billion atoms to be excited.
