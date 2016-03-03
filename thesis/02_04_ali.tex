@@ -22,7 +22,7 @@
     \end{equation}
   The background of this equation and the conditions under which it is valid are
   discussed in appendix \ref{apx:qu_dyn}. It constitutes a set of differential
-  equations to be solved: one for each of the density matrix elements.
+  equations to be solved: one for each element of the density matrix $\rho$.
 
   \subsection{Spontaneous Decay of Excited States}
 
@@ -72,7 +72,8 @@
     wavenumber $\mathbf{k}$ (the analysis extends to multi-chromatic fields,
     which we will consider in chapter \ref{chp:nonlinear}). We may write the
     field as
-    \begin{equation}\label{eqn:envelope_carrier}
+    \begin{equation}
+      \label{eqn:envelope_carrier}
       \mathbf{E}(\mathbf{r}, t) = \hat{\mathbf{x}} 
       \left[ \tfrac{1}{2} \mathcal{E}(t) 
       \mathrm{e}^{\mathrm{i}(\mathbf{k} \cdot \mathbf{r} - \omega t)} + 
@@ -178,11 +179,12 @@
     represented by a density matrix $\rho$ is defined in equation
     (\ref{eqn:density_matrix_exp_value}), such that we may write
     \begin{equation}
-      P(z,t) = N(z) \Tr{ \left[ \rho \mathrm{d}(z,t) \right] }.
+      P(z,t) = N(z) \Tr{ \left[ \rho \mathrm{d}(z,t) \right] }
     \end{equation}
-    As we know from the above parity argument that the diagonal matrix elements
-    of the dipole operator are zero, we may then write $P$ directly in terms of
-    the off-diagonal elements and the atomic coherences, via
+    where $\Tr[\cdot]$ is the trace operator. As we know from the above parity argument
+    that the diagonal matrix elements of the dipole operator are zero, we may
+    then write $P$ directly in terms of the off-diagonal elements and the atomic
+    coherences, via
     \begin{equation}
       P(z,t) = N(z) \sum_{i \ne j}{\left[ d_{ij} \rho_{ij}(z,t) + 
                                  d_{ji} \rho_{ji}(z,t) \right] }.

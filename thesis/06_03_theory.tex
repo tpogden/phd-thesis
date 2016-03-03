@@ -2,15 +2,15 @@
   \label{sec:simultons_theory}
 
     We start with a quantised three-level atom as illustrated in figure
-    \ref{fig:vee_schematic}. The probe beam couples the ground state $\Ket{0}$
-    to an excited state $\Ket{1}$ while an orthogonal coupling beam couples
-    $\Ket{0}$ to an adjacent excited state $\Ket{2}$. The transition $\Ket{1}$
-    to $\Ket{2}$ is dipole-forbidden, completing the definition of the V-type
-    atom. With this simplified model of the atomic system, we are neglecting the
-    hyperfine structure of the $5^2\mathrm{S}_{\nicefrac{1}{2}}$,
-    $5^2\mathrm{P}_{\nicefrac{1}{2}}$ and $5^2\mathrm{P}_{\nicefrac{3}{2}}$
-    states. We will discuss this approximation further in section
-    \ref{sec:simultons_long}.
+    \ref{fig:vee_schematic}. The linearly polarised probe beam couples the
+    ground state $\Ket{0}$ to an excited state $\Ket{1}$ while an orthogonally
+    polarised coupling beam couples $\Ket{0}$ to an adjacent excited state
+    $\Ket{2}$. The transition $\Ket{1}$ to $\Ket{2}$ is dipole-forbidden,
+    completing the definition of the V-type atom. With this simplified model of
+    the atomic system, we are neglecting the hyperfine structure of the
+    $5^2\mathrm{S}_{\nicefrac{1}{2}}$, $5^2\mathrm{P}_{\nicefrac{1}{2}}$ and
+    $5^2\mathrm{P}_{\nicefrac{3}{2}}$ states. We will discuss this approximation
+    further in section \ref{sec:simultons_long}.
 
     The total electric field vector for the two laser beams is described by
     \begin{equation}
@@ -108,16 +108,16 @@
     pulse (at $t = $ \unit[$-1.5$]{$\tau$}) for the system to reach a steady
     state.
 
-    \begin{figure}%[h]
+    \begin{figure}[h]
       \includegraphics[width=\linewidth]
         {figs/06_simultons/mb_vee2g_build0_15c_130p_0330t_230C_sb50_120vel000_00_002um_fig2.pdf}
       \caption{
-      Real parts of the complex Rabi frequencies $\Omega_{p}$ (top) and
-      $\Omega_{c}$ (bottom) in the simulated pulse/\textsc{cw} scheme. The
-      coupling pulse has width $t_w = $ \unit[$0.029$]{$\tau$} and peak
-      $\Omega_c$ of \unit[$2\pi~130$]{$\Gamma$}. The absorption coefficients are
-      $Ng_{01} = \unit[2\pi~66.7]{\Gamma/L}$ and $Ng_{02} =
-      \unit[2\pi~128]{\Gamma/L}$.
+      Real parts of the complex Rabi frequencies (in units of $\Gamma/2\pi$)
+      $\Omega_{p}$ (top) and $\Omega_{c}$ (bottom)  in the simulated
+      pulse/\textsc{cw} scheme. The coupling pulse has width $t_w = $
+      \unit[$0.029$]{$\tau$} and peak $\Omega_c$ of \unit[$2\pi~130$]{$\Gamma$}.
+      The absorption coefficients are $Ng_{01} = \unit[2\pi~66.7]{\Gamma/L}$ and
+      $Ng_{02} = \unit[2\pi~128]{\Gamma/L}$.
       }
       \label{fig:sim_0703_temp_210C_build0_fields}
     \end{figure}
@@ -133,11 +133,10 @@
     slice at at $z\!=\!0$.
 
     We see that the coupling pulse (bottom) is not attenuated over this
-    distance, but in fact is shaped and is indeed amplified and split around the
-    centre ($t=0$). A long-time tail emerges towards the end of the medium
-    ($z\!=\!L$).
+    distance, but in fact is reshaped and split around the centre ($t=0$). A
+    long-time tail emerges towards the end of the medium ($z\!=\!L$).
 
-    \begin{figure}%[h]
+    \begin{figure}[h]
       \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee2g_build0_15c_130p_0330t_230C_sb50_120vel000_00_002um_fig3.pdf}
       \caption{
       Populations of the ground state $\rho_{00}$ (top) and excited states
@@ -156,7 +155,7 @@
     attenuated, and this process repeats twice over the duration of the pulse.
     After the pulse the field returns to its initial state.
 
-    \begin{figure}%[h]
+    \begin{figure}[h]
       \includegraphics[width=\linewidth]
         {figs/06_simultons/mb_vee2g_build0_15c_130p_0330t_230C_sb50_120vel000_00_002um_fig4.pdf}
       \caption{
@@ -226,8 +225,10 @@
     \begin{equation}\label{eqn:max_boltz}
       f(\Delta) = \tfrac{1}{u \sqrt{\pi}} \ee^{-(\Delta/u)^2}
     \end{equation}
-    where the thermal width $u = k v_w$. Here $k$ is again the wavenumber of the quasi-monochromatic field and $v_w = 2 k_B T/m$ is the most probable speed of the Maxwell-Boltzmann distribution for a temperature $T$ and atomic mass $m$.
-    \cite{schroeder2000introduction}
+    where the thermal width $u = k v_w$. Here $k$ is again the wavenumber of the
+    quasi-monochromatic field and $v_w = \sqrt{2 k_B T/m}$ is the most probable
+    speed of the Maxwell-Boltzmann distribution for a temperature $T$ and atomic
+    mass $m$.\cite{2007introduction}
 
     To include this effect in the field propagation equations, as described in chapter \ref{chp:propagation}, we replace the atomic coherence factor by an
     integral over the convolution of $P(\Delta)$ with the atomic coherence now a function of detuning, so that
@@ -283,8 +284,13 @@
 
     \begin{figure}[h]
       \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee2g_build1_15c_130p_0330t_230C_sb50_120vel000_00_002um_fig2.pdf}
-      \caption{Real parts of the complex Rabi frequencies $\Omega_{p}$ (top) and 
-      $\Omega_{c}$ (bottom) in the simulated pulse/\textsc{cw} scheme for the parameter set in figure \ref{fig:sim_0703_temp_210C_build0_fields}, with the inclusion of motional effects of Doppler and collision broadening.}
+      \caption{
+      Real parts of the complex Rabi frequencies (in units of $\Gamma$)
+      $\Omega_{p}$ (top) and  $\Omega_{c}$ (bottom) in the simulated
+      pulse/\textsc{cw} scheme for the parameter set in figure
+      \ref{fig:sim_0703_temp_210C_build0_fields}, with the inclusion of motional
+      effects of Doppler and collision broadening.
+      }
       \label{fig:sim_0703_temp_210C_build2_fields}
     \end{figure}
 
@@ -347,9 +353,9 @@
     \begin{figure}[]
       \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee2g_exp_build_plot_1_2_fig1.pdf}
       \caption{
-      Simulated transmission intensity at the end of the medium,
-      $z=\unit[1]{\textit{L}}$ as the probe responds to the input coupling
-      pulse, without hyperfine pumping (red dashed) and with (solid).
+      Simulated probe transmission (relative intensity) at the end of the
+      medium, $z=\unit[1]{\textit{L}}$ as the probe responds to the input
+      coupling pulse, without hyperfine pumping (red dashed) and with (solid).
       }
       \label{fig:hf_pumping} 
     \end{figure}
@@ -361,6 +367,6 @@
     absorptive power of the medium decreases as population is trapped in the
     off-resonant dark ground state. This results in an increase in the baseline
     transmitted signal after the pulse with respect to that beforehand. The peak
-    with the inclusion of \textsc{hf} pumping is slightly earlier, as the 
+    with the inclusion of hyperfine pumping is slightly earlier, as the 
     slow-light effect of the medium is reduced with the depopulation of the
     resonantstates.

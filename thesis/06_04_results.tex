@@ -38,16 +38,17 @@
     a simulated peak Rabi frequency $\Omega_c = \unit[2\pi~130]{\Gamma}$.
 
     A low-pass filter is applied to the simulation result to account for a limit
-    in resolution of the photon detector of \unit[$2\pi \cdot 8$]{GHz}. This is effected by a Fourier transform of the intensity profile in the time
-    domain to the frequency domain and removal of frequencies $\lvert \omega
-    \rvert > \omega_c$ before an inverse transform is made back to the time
-    domain. A sharp cutoff would introduce discontinuities, so instead we apply a
-    convolution with a roll-off frequency curve
+    in resolution of the photon detector of \unit[$2\pi \cdot 8$]{GHz}. This is
+    effected by a Fourier transform of the intensity profile in the time domain
+    to the frequency domain and removal of frequencies $\lvert \omega \rvert >
+    \omega_c$ before an inverse transform is made back to the time domain. A
+    sharp cutoff would introduce discontinuities, so instead we apply a
+    convolution with the first-order Butterworth filter\cite{Butterworth1930}
+    for a roll-off frequency curve
     \begin{equation}
         f(\omega) = \frac{1}{\sqrt{1 + 
                       \left( \frac{\omega}{\omega_c} \right)^2}}.
     \end{equation}
-
     We see good qualitative agreement with the data. The simple three-level model
     result shows the distinctive steep rise in the probe transmission, the early
     peak around $t = $ \unit[$-0.015$]{$\tau$} followed by a subsequent, smaller
@@ -57,7 +58,7 @@
 
     The additional `bump' in the pulse profile is the likely cause of a
     following oscillation in the probe signal. This artefact is not included in
-    the simulation is not observed in the probe signal tail.
+    the simulation, so it is not observed in the probe signal tail.
 
   \subsection{Power Dependence}
 
@@ -90,9 +91,11 @@
     beam waist and transition dipole matrix element for $^{85}$Rb. The
     difference is reasonable if we take into account our uncertainty in the
     field amplitude at the site of the atoms due to beam focussing as well as
-    the effective \textsc{tdme} due to hyperfine degeneracy (we will discuss
-    this in section \ref{sec:simultons_long}). The Rabi frequencies for other
-    input intensities are derived from the \unit[100]{mW} value, following the relationship $\Omega \propto \sqrt{I}$.
+    the effective transition dipole matrix element (\textsc{tdme}) due to
+    hyperfine degeneracy (we will discuss this in section
+    \ref{sec:simultons_long}). The Rabi frequencies for other input intensities
+    are derived from the \unit[100]{mW} value, following the relationship
+    $\Omega \propto \sqrt{I}$.
 
     The simulation and experimental data are normalised to the peak intensity in
     response to the \unit[100]{mW} run. The response peaks at lower powers are
@@ -103,6 +106,12 @@
     for the \unit[100]{mW} run, and to \textit{steepen} the peaks. The
     simulation results also match this behaviour over the power range
     investigated.
+
+     To restate: the only fitted parameter in the simualated results of figure
+     \ref{fig:exp_result_power_dep} is the coupling laser Rabi frequency
+     $\Omega_c$ in the \unit[100]{mW} case. The coupling Rabi frequency for the
+     other datasets is derived from this constraint, and the agreement is good
+     across the powers measured down to \unit[20]{mW}.
 
   \subsection{Temperature Dependence}
 
@@ -128,13 +137,15 @@
     experimental data for comparison, and the measured coupling pulse for each
     run is shown (normalised) for reference on the time axis.
 
-    We see that there is good qualitative agreement between the simulated result
-    and experimental data across the temperature range. The increase in
-    temperature does not significantly affect the peak time of the response
-    signal, but does linearly increase the peak intensity, and this is matched
-    in the simulation. The behaviour of the probe after the pulse has passed is
-    also in reasonable agreement, though there are clear oscillations in the
-    data which are not matched in the simulation.
+    For these datasets only fitted parameter is again the coupling Rabi
+    frequency $\Omega_c$, which is the same in each case. We see again that
+    there is good qualitative agreement between the simulated result and
+    experimental data across the temperature range. The increase in temperature
+    does not significantly affect the peak time of the response signal, but does
+    linearly increase the peak intensity, and this is matched in the simulation.
+    The behaviour of the probe after the pulse has passed is also in reasonable
+    agreement, though there are clear oscillations in the data which are not
+    matched in the simulation.
 
   \subsection{A Recap}
 
@@ -142,7 +153,10 @@
     the fields through a V-type three-level medium, considering important
     physical effects of inhomogeneous broadening, binary collisions and
     hyperfine pumping. We've chosen appropriate parameters to compare simulation
-    results with the experimental data and observe a good qualitative fit across the power and temperature parameter space covered in the laboratory study.
+    results with the experimental data and observe a good qualitative fit across
+    the power and temperature parameter space covered in the laboratory study.
 
-    Having some trust that our model is useful in matching the experiment, we'd like to gain physical insight into the underlying mechanisms responsible
-    for the observed data. We begin by looking more closely into the response of an individual atom to the applied fields.
+    Having some trust that our model is useful in matching the experiment, we'd
+    like to gain physical insight into the underlying mechanisms responsible for
+    the observed data. We begin by looking more closely into the response of an
+    individual atom to the applied fields.

@@ -100,10 +100,6 @@
     atom represents the state of the valence electron prior to interaction with
     the optical field.
 
-    The bare atomic Hamiltonian for the hydrogenic description of a rubidium
-    atom represents the state of the valence electron prior to interaction with
-    the optical field.
-
     Our basis consists of the set of all hyperfine sublevels contained in the
     fine structure manifolds in the model, indexed by quantum numbers $n$ and
     $J$. The bare atomic Hamiltonian in the hyperfine basis is then given by the
@@ -527,7 +523,7 @@
         {figs/05_twophoton/twophoton_level_scheme_decay_2.pdf}
     \caption{
     Decay channels of selected hyperfine manifolds in rubidium.  Blue
-    flourescence is from the decay from $6^2\rm{P}_{\nicefrac{1}{2}}$ and
+    fluorescence is from the decay from $6^2\rm{P}_{\nicefrac{1}{2}}$ and
     $6^2\rm{P}_{\nicefrac{3}{2}}$ to the $5\rm{S}$ ground state. The $6\rm{P}$
     states in this model are populated via decay from the
     $5^2\rm{D}_{\nicefrac{3}{2}}$ and $5^2\rm{D}_{\nicefrac{5}{2}}$ states.
@@ -538,10 +534,26 @@
     \label{fig:twophoton_level_scheme_decay} 
     \end{figure}
 
-    The allowed decay channels for the manifolds included in our model are
-    illustrated in figure \ref{fig:twophoton_level_scheme_decay}. It is
-    important to note that the $6\rm{P}$ states in fact have decay channels to
-    states other than the ground state $5^2\rm{S}_{\nicefrac{1}{2}}$ which are
-    not included in this model. We here assume that all of the $6\rm{P}$
-    population decays via a single channel to the ground state. The decay widths
-    $\Gamma_{J,J'}$ are given in table \ref{tab:exp_widths}.
+    % The allowed decay channels for the manifolds included in our model are
+    % illustrated in figure \ref{fig:twophoton_level_scheme_decay}. It is
+    % important to note that the $6\rm{P}$ states in fact have decay channels to
+    % states other than the ground state $5^2\rm{S}_{\nicefrac{1}{2}}$ which are
+    % not included in this model. We here assume that all of the $6\rm{P}$
+    % population decays via a single channel to the ground state. The decay widths
+    % $\Gamma_{J,J'}$ are given in table \ref{tab:exp_widths}.
+
+    The allowed decay channels for manifolds included in our model are
+    $5^2\rm{P}_{\nicefrac{1}{2}} \rightarrow 5^2\rm{S}_{\nicefrac{1}{2}}$,
+    $5^2\rm{P}_{\nicefrac{3}{2}} \rightarrow 5^2\rm{S}_{\nicefrac{1}{2}}$,
+    $5^2\rm{D}_{\nicefrac{3}{2}} \rightarrow 5^2\rm{P}_{\nicefrac{1}{2}}$,
+    $5^2\rm{D}_{\nicefrac{3}{2}} \rightarrow 5^2\rm{P}_{\nicefrac{3}{2}}$,
+    $5^2\rm{D}_{\nicefrac{3}{2}} \rightarrow 6^2\rm{P}_{\nicefrac{1}{2}}$,
+    $5^2\rm{D}_{\nicefrac{3}{2}} \rightarrow 6^2\rm{P}_{\nicefrac{3}{2}}$ and
+    $5^2\rm{D}_{\nicefrac{5}{2}} \rightarrow 6^2\rm{P}_{\nicefrac{3}{2}}$. These
+    are illustrated in figure \ref{fig:twophoton_level_scheme_decay}. The decay
+    widths $\Gamma_{J,J'}$ are given in table \ref{tab:exp_widths}. 
+
+    The $6\rm{P}$ states have decay channels via several states down to the
+    ground state. In this model we turn off decay from $6\rm{P}$ such that they
+    are sink states. We are thus able to calculate how much population enters
+    these states over the time period of a simulation.

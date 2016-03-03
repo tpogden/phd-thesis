@@ -33,7 +33,7 @@
     (\ref{eqn:maxwells}d) we find 
     $$
       \curl{(\curl{\mathbf{E}})} = 
-      -\mu_0 \frac{\partial \mathbf{D}^2}{\partial t^2}.
+      -\mu_0 \frac{\partial^2 \mathbf{D}}{\partial t^2}.
     $$
     We then apply the vector identity
     $$
@@ -65,7 +65,7 @@
     We will consider \textsc{1d} propagation along the z-axis, a restriction
     well-justified by the deconstructive interference of light scattered by
     atomic dipoles in directions not aligned with the incident
-    radiation\cite{hecht2015optics}. Then we might write the transverse field as
+    radiation\cite{hecht2015optics}. Then we may write the transverse field as
     $\mathbf{E} = \hat{\mathbf{x}} E(z, t)$, where $\hat{\mathbf{x}}$ is a unit
     vector perpendicular to $z$. We assume that we are dealing with atoms that
     are electrically neutral to start with, such that all of the polarisation in
@@ -126,6 +126,7 @@
                     \mathrm{e}^{\mathrm{i}(k z - \omega t)} 
                 + \tfrac{1}{2} \mathcal{E}^*(z,t) 
                     \mathrm{e}^{-\mathrm{i}(k z - \omega t)}
+    \label{eqn:envelope_carrier_ansatz}
     \end{equation}
     where the envelope is in general a complex function 
     \begin{equation}
@@ -147,7 +148,7 @@
     \end{equation}
 
     We can substitute these into (\ref{eqn:mwe_scalar}) and by matching
-    co-rotating terms we find
+    co-rotating terms we find\footnote{Here we use subscript notation: $\partial_{z} := \partial/\partial z$, $\partial_{zz} := \partial^2/\partial z^2$ \etc}
     \begin{equation}
     \left[ ( \partial_{zz} + 2 \mathrm{i} k \partial_{z} - k^2 ) - 
       \tfrac{1}{c^2} (\partial_{tt} - 
@@ -197,14 +198,15 @@
       \mathrm{i} \frac{k}{2 \epsilon_0} \mathcal{P}.
     \end{equation}
 
-    The wave equation (\ref{eqn:fo_mwe}), first-order in space $z$ and time
-    $t$, can be solved numerically for a given medium, to determine how light
-    will propagate through it. But we will next need to determine how the media
-    through $\mathcal{P}$ is itself  affected by the field $\mathcal{E}$.
+    The wave equation (\ref{eqn:fo_mwe}), first-order in space $z$ and time $t$,
+    can be solved numerically for a given medium, to determine how light will
+    propagate through it. However, the response of the medium via $\mathcal{P}$
+    may itself be affected by the field $\mathcal{E}$, so we will next look at
+    how we determine $\mathcal{P}$.
 
   \subsection{Energy and Intensity}
 
-    In an experiment we will not be measuring the electric field directly, but
+    In an experiment we would not be measuring the electric field directly, but
     the energy transferred to a detector such as a photon counter. Also, any
     macroscopic measurement of light is necessarily going to extend over many
     optical cycles (of duration $\sim\!\unit[10^{-15}]{s}$). So a property

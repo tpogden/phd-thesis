@@ -5,11 +5,11 @@
       \centering     %%% not \center
       \subfigure[Schematic of the three-level V-type atom.]
         {\label{fig:vee_schematic}
-        \includegraphics[width=0.4\textwidth]
+        \includegraphics[width=0.65\textwidth]
           {figs/06_simultons/vee_level_diagram.pdf}}
       \subfigure[Hyperfine structure of $^{85}$Rb on the \textsc{d1} and 
                   \textsc{d2} lines, showing angular frequency splittings across hyperfine manifolds.]{\label{fig:rb85_levels}
-        \includegraphics[width=0.4\textwidth]
+        \includegraphics[width=0.65\textwidth]
           {figs/06_simultons/rb85_levels_trim.pdf}}
       \caption{V configuration level diagrams.}
     \end{figure}
@@ -59,10 +59,6 @@
     This shaping is performed by a Pockels cell placed between  two crossed
     Glan-Taylor prisms to rapidly rotate the polarisation of the  beam.
 
-    The experiments were performed and results taken by Kate A. Whittaker and
-    James Keaveney. Further details of the experimental setup may be found in
-    Keaveney, 2013.\cite{Keaveney2013}
-
   \subsection{Experimental Results}
 
     \begin{figure}[h]
@@ -89,12 +85,15 @@
     shot to shot.
 
     We see the probe transmission peak sharply around $\unit[0.5]{ns}$ before
-    the maximum of the coupling pulse, which suggests a superluminal propagation
-    effect, perhaps due to a negative refractive index in the
-    medium.\cite{Keaveney2012}. There is a brief, smaller oscillation before the
-    transmission returns to its original level. The input pulse profile applied
-    in the experiment has an additional `bump' as an artefact of the way the
-    pulse is shaped (this can be seen in the grey pulse shape).
+    the maximum of the coupling pulse, which suggests a superluminal effect,
+    perhaps due to a negative refractive index in the medium\cite{Keaveney2012}.
+    In this chapter we aim to demonstrate that in fact it a reshaping due to
+    nonlinear pulse propagation effects.
+
+    There is a brief, smaller oscillation before the transmission returns to its
+    original level. The input pulse profile applied in the experiment has an
+    additional `bump' as an artefact of the way the pulse is shaped (this can be
+    seen in the grey pulse shape).
 
     \begin{figure}[h]
       \includegraphics[width=\linewidth]
@@ -115,7 +114,7 @@
     over a range of temperatures from $\unit[200]{\textrm{\textdegree C}}$ to
     $\unit[290]{\textrm{\textdegree C}}$. The coupling pulse has a peak optical
     power of \unit[$82$]{mW} and is centred at $t = 0$. For clarity the data has
-    been smoothed using a moving average with a triangular weighting function.
+    been smoothed using a moving average with a triangular window function.
 
     We see that over the range of temperatures investigated at this power, the
     steep early response is consistent in time and that the peak of the response

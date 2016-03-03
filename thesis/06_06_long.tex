@@ -65,11 +65,12 @@
     probe pulse area $\theta_p$ (bottom, green) is held abruptly at around $z =
     $ \unit[$0.1$]{$L$} to a value of around $1 \pi$. The simultaneous
     propagating pulses first steepen toward the sech shape, but then broaden and
-    slow due to the spontaneous decay. We see the large area of the \textsc{cw}
-    probe decreases but doesn't disappear, and the combined pulse area $\theta =
-    \sqrt{\theta_p^2 + \theta_c^2}$ (bottom, red dashed) finds its steady state
-    at $2 \pi$. The pulses do not reach the end of the medium in the duration of
-    the simulation, propagating a distance of $z = $ \unit[$0.7$]{$L$}.
+    slow due to the spontaneous decay. We see the initially large area of the
+    \textsc{cw} probe at $z = 0$ decreases but doesn't disappear, and the
+    combined pulse area $\theta = \sqrt{\theta_p^2 + \theta_c^2}$ (bottom, red
+    dashed) finds its steady state at $2 \pi$. The pulses do not reach the end
+    of the medium in the duration of the simulation, propagating a distance of
+    $z = $ \unit[$0.7$]{$L$}.
 
     We may ask: what does it means to define a pulse area for an input
     \textsc{cw} field? For our purposes, we may take it to be arbitrarily large.
@@ -84,7 +85,8 @@
     \unit[10]{\Gamma}$. The coupling input pulses are again Gaussians of width
     $\tau_w = $ \unit[0.01]{$\tau_\Gamma$}.
 
-    \begin{figure}%[h]
+    \begin{figure}[h]
+    \centering
     \includegraphics[width=\linewidth]
       {figs/06_simultons/mb_vee_sit_plot_45pi_Ng1e4_fig1.pdf}
     \caption{
@@ -93,7 +95,8 @@
     $\unit[10]{\Gamma}$ \textsc{cw} probe. (Top left) Propagation profile of the
     probe (green) and coupling (blue) fields. (Bottom left) Pulse areas of the
     fields and the total area (red dashed). (Right) Colourmaps of the real part
-    of the complex Rabi frequencies $\Omega_{p}$ and $\Omega_{c}$.
+    of the complex Rabi frequencies $\Omega_{p}$ and $\Omega_{c}$ (in units of
+    $\Gamma/2\pi$).
     }
     \label{fig:pulse_cw_4pi_cmap}
     \end{figure}
@@ -111,15 +114,17 @@
     $\rho_{01}$. This oscillation forms the probe component of a pulse that
     matches with the first coupling pulse and propagates as a simulton.
 
-    \begin{figure}%[h]
-    \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee_sit_plot_65pi_Ng1e4_fig1.pdf}
+    \begin{figure}[h]
+    \includegraphics[width=\linewidth]
+      {figs/06_simultons/mb_vee_sit_plot_65pi_Ng1e4_fig1.pdf}
     \caption{
     Propagation of a Gaussian $6.5 \pi$ input coupling pulse with width
     \unit[$0.01$]{$\tau_\Gamma$} through the V-type medium addressed by a
     $\unit[10]{\Gamma}$ \textsc{cw} probe. (Top left) Propagation profile of the
     probe (green) and coupling (blue) fields. (Bottom left) Pulse areas of the
     fields and the total area (red dashed). (Right) Colourmaps of the real part
-    of the complex Rabi frequencies $\Omega_{p}$ and $\Omega_{c}$.
+    of the complex Rabi frequencies $\Omega_{p}$ and $\Omega_{c}$ (in units of
+    $\Gamma/2\pi$).
     }
     \label{fig:pulse_cw_6pi_cmap}
     \end{figure}
@@ -136,16 +141,7 @@
 
   \subsection{Comparison with Experimental Data}
 
-    The discovery that a strong coupling pulse has the effect of causing a long-
-    distance propagating soliton in the \textsc{cw} probe leads us to consider
-    the experimental results from the thin cell, using the parameters of section
-    \ref{sec:simultons_experiment}, but imagining that the cell is longer.
-    Recall that in the case of transitions on the the rubidium \textsc{d1} and
-    \textsc{d2} lines we have distinct values for $g_{01}$ and $g_{02}$, as they
-    are proportional to the square of the respective dipole moments, $d_{0j}^2$.
-    This may affect the ability of the pulses to match and propagate.
-
-    \begin{figure}[h]
+    \begin{figure}
       \includegraphics[width=\linewidth]
         {figs/06_simultons/mb_vee2g_15c_130p_0330t_230C_sb50_120vel010_10_050um_fig1.pdf}
       \caption{
@@ -156,10 +152,19 @@
       \unit[$230$]{\textdegree C}. (Middle) Colour map of the real part of the
       complex Rabi frequency for the probe field. The red dotted line marks $z =
       1L$. (Bottom) Colour map of the real part of the complex Rabi frequency for
-      the coupling pulse.
+      the coupling pulse (in units of $\Gamma/2\pi$).
       } 
       \label{fig:exp_result_single} 
     \end{figure}
+
+    Understanding that a strong coupling pulse has the effect of causing a 
+    long-distance propagating soliton in the \textsc{cw} probe leads us to consider
+    the experimental results from the thin cell, using the parameters of section
+    \ref{sec:simultons_experiment}, but imagining that the cell is longer.
+    Recall that in the case of transitions on the the rubidium \textsc{d1} and
+    \textsc{d2} lines we have distinct values for $g_{01}$ and $g_{02}$, as they
+    are proportional to the square of the respective dipole moments, $d_{0j}^2$.
+    This may affect the ability of the pulses to match and propagate.
 
     In figure \ref{fig:exp_result_single} we present again the comparison of
     numerical result and experimental data shown in figure
@@ -183,8 +188,9 @@
     gives us an understanding of the mechanism behind the observed transmission
     profiles in the probe field when the system is disturbed by the strong
     coupling pulse. We see that \textit{it is the formation of this nascent
-    soliton} in the probe field which causes the steep early in the experimental
-    signal as the probe field is shaped towards a sech-shaped soliton.
+    soliton} in the probe field which causes the steeping early in the
+    experimental signal as the probe field is shaped towards a sech-shaped
+    soliton.
 
     It also explains why the peak intensity increases with temperature and
     number density as observed in figure \ref{fig:exp_result_temp_dep}, as we
@@ -202,22 +208,28 @@
     the simulated transmission profiles provide a good qualitative fit to the
     data along with physical insight into the underlying coherent mechanism.
 
-    The discovery, however, that pulse propagation effects are significant means
-    that the physical structure of the atomic energy levels requires further
-    consideration. This is clear if we consider the pulse area, introduced in
-    chapter \ref{chp:nonlinear}, which is given by
+    The discovery, however, that pulse propagation effects are significant in
+    this problem means that the physical structure of the atomic energy levels
+    requires further consideration. This is clear if we consider the pulse area,
+    introduced in chapter \ref{chp:nonlinear}, which is given by
     \begin{equation}
       \Theta(z) = \int^\infty_{-\infty} \Omega(z,t) \dd t
                 = \frac{d}{\hbar} \int^\infty_{-\infty} \mathcal{E}(z,t) \dd t.
     \end{equation}
+
     This quantity is well-defined only if the atomic levels coupled have a
     uniquely specified dipole moment $d$. We understand that the physical system
     in fact has this deeper hyperfine structure due to coupling of the
     electron's orbital angular momentum $L$, spin $S$ and the nuclear spin $I$,
     as shown in figure \ref{fig:rb85_levels}. An additional concern is that, in
     the absence of an applied magnetic field, the $2F + 1$ sublevels of these
-    hyperfine $F$ levels are spatially degenerate such that there is no
+    hyperfine $F$ levels are degenerate such that there is no
     straightforward way for these $m_F$ states to be addressed separately.
+    \footnote{By adding a huge magnetic field (on the order of $\unit[0.5]{T}$)
+    the atomic energy levels may be separated beyond the Doppler width, such
+    that individual two- and three-level systems are
+    addressable.\cite{Whiting:15,Zentile2014} Though $F$ and $m_F$ cease to be
+    good quantum numbers in this case.}
 
     The couplings between these degenerate sublevels will then have different
     dipole matrix elements $\Bra{F m_F} e \mathbf{r} \Ket{F' m'_F}$ and
@@ -317,7 +329,7 @@
     transmission of the probe field. We observe that this weak probe, despite
     being weak enough to excite only a tiny fraction of the atomic population to
     the $\rho_{11}$ state, is able to propagate simultaneously with the coupling
-    pulse just as the strong probe was.  The three-level pulse area is nearly
+    pulse just as the strong probe was. The three-level pulse area is nearly
     all in the coupling field, but the induced pulse in the probe field is not
     attenuated as it would be were the coupling field not present. Some high-
     frequency ringing is seen in the probe field.
