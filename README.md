@@ -3,6 +3,10 @@
 - Thomas P. Ogden
 - Department of Physics, Durham University
 
+## Latest Release
+
+- https://github.com/tommyogden/phd-thesis/releases/download/v1.0/thesis.pdf
+
 ## Abstract
 
   This thesis presents theoretical models and results of numerical simulations
@@ -31,3 +35,23 @@
   pulses can propagate with this scheme suggests an approach to achieving
   transparent propagation of single or few photon pulses distinct from, but
   related to, both SIT and EIT.
+
+## How do I make this a PDF?
+
+To produce a PDF document from this TeX source, and run the following commands.
+(You need to have a TeX implementation installed.)
+
+```bash
+pdflatex thesis   # Convert the TeX source to a PDF document
+bibtex thesis     # Produce the reference list
+pdflatex thesis   # Render the reference list
+pdflatex thesis   # Once more for luck
+```
+
+## Copyright
+
+Copyright 2016 Thomas P. Ogden.
+
+The copyright of this thesis rests with the author. No quotation
+from it should be published without their prior written consent and
+information derived from it should be acknowledged.
