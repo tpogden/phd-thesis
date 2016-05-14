@@ -15,7 +15,7 @@
 
     The \textsc{mb} equations are together equations (\ref{eqn:comoving_mwe})
     and (\ref{eqn:lindblad}), which we will restate here for completeness. They
-    are the first-order Maxwell wave equation with the slowly-varying envelope
+    are the first-order Maxwell wave equation with the slowly varying envelope
     approximation
     \begin{equation*}
       \frac{\partial}{\partial z} \mathcal{E}(z,t') = 
@@ -266,7 +266,7 @@
     Boltzmann distribution. We check the integration width is sufficient by
     using a simple trapezoidal integration over the discrete Maxwell-Boltzmann
     distribution to ensure it is close to unity. In each of the calculations
-    above we used an evenly-spaced sampling over four times the \textsc{fwhm}.
+    above we used an evenly spaced sampling over four times the \textsc{fwhm}.
     The integral is far from unity until around $20$ detuning steps (when it
     reaches $0.995$), which explains why we don't see convergence in the first
     few samples.  Second, it is important to sample accurately the Lorentzian
@@ -322,7 +322,7 @@
     \textsc{cpu}s or more is obviously limited.
 
     The Lindblad solver routine in the velocity class loop represents the most
-    computationally-intensive part of the whole algorithm, so it is certainly
+    computationally intensive part of the whole algorithm, so it is certainly
     useful to be able to make use of multiple core computers to perform these
     calculations. For the work described in this thesis we made use of an Intel
     Core i7 with up to 4 \textsc{cpu} cores, and for the most intensive
