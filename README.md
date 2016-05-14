@@ -11,7 +11,7 @@
   solitons due to self-induced transparency (SIT) in two-level systems,
   optical simultons in V-type three-level systems and electromagnetically
   induced transparency (EIT) in Λ-type systems, including the
-  storage and retrieval of dark state polaritons.
+  storage and retrieval of dark-state polaritons.
 
   An investigation is made into two-photon excitation of the 5D states of
   rubidium in a high-intensity beam including the hyperfine structure of the
