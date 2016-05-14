@@ -5,7 +5,7 @@
 
 ## Latest Release
 
-- https://github.com/tommyogden/phd-thesis/releases/download/v1.0/thesis.pdf
+- https://github.com/tommyogden/phd-thesis/releases/download/v1.0/thesis.pdf (10MB)
 
 ## Abstract
 
@@ -42,6 +42,7 @@ To produce a PDF document from this TeX source, and run the following commands.
 (You need to have a TeX implementation installed.)
 
 ```bash
+cd thesis         # Move to the thesis/ subdirectory
 pdflatex thesis   # Convert the TeX source to a PDF document
 bibtex thesis     # Produce the reference list
 pdflatex thesis   # Render the reference list
