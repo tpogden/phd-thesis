@@ -193,13 +193,20 @@
     We see that the primary pulse envelope is attenuated and slightly fast, such
     that the first peak arrives at the rear of the medium, $z = \unit[1]{L}$, at
     a time $t \approx $\unit[$-0.05$]{$\tau$} in the speed-of-light reference
-    frame. [normal dispersion profile]. Not all of the energy of the pulse is
-    absorbed, however. This is because the pulse is short in duration relative
-    to $\tau$, such that its spectral profile is wider in frequency space than
-    the absorption window of the atoms. Thus some spectral components of the
-    field see a medium which is transparent to them. However, they remain
-    subject to phase shift. We see high-frequency ringing, also described as a
-    $0\pi$ pulse as the total area integrates to zero.\cite{allen1975optical, Durrant1976}
+    frame. This is typical of propagation through a medium with a normal
+    dispersion profile (see section \ref{sec:polaritons_propagation} for further
+    discussion of fast- and slow-light group velocities). Not all of the energy
+    of the pulse is absorbed, however. This is because the pulse is short in
+    duration relative to $\tau$, such that its spectral profile is wider in
+    frequency space than the absorption window of the atoms. Thus some spectral
+    components of the field see a medium which is transparent to them. However,
+    they remain subject to phase shift. We see high-frequency ringing, also
+    described as a $0\pi$ pulse as the total area integrates to
+    zero.\cite{allen1975optical, Durrant1976}
+
+    % where the gradient $\partial \chi_R / \partial \omega <
+    % 0$ around resonance (see figure \ref{fig:susc_imag_real_linear_comp})
+    % results in an observed envelope, or group, velocity $v_g$ faster than $c$.
 
     \begin{figure}
     \includegraphics[width=\linewidth]{figs/02_propagation/mb_two_solve_wp_t01_Ng0100_T0_vel0_D0_fig2.pdf}
@@ -461,7 +468,7 @@
       \label{fig:linear_scan_dopp}
     \end{figure}
 
-    In figure \label{fig:linear_scan_dopp} we show simulated results for the
+    In figure \ref{fig:linear_scan_dopp} we show simulated results for the
     real and imaginary parts of the susceptibility for the same system as in
     figure  \ref{fig:susc_imag_real_linear_comp}, but this time including
     Doppler effects in the numerical algorithm by a weighted averaging over a
