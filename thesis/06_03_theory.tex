@@ -230,8 +230,11 @@
     speed of the Maxwell-Boltzmann distribution for a temperature $T$ and atomic
     mass $m$.\cite{2007introduction}
 
-    To include this effect in the field propagation equations, as described in chapter \ref{chp:propagation}, we replace the atomic coherence factor by an
-    integral over the convolution of $P(\Delta)$ with the atomic coherence now a function of detuning, so that
+    To include this effect in the field propagation equations, as described in
+    chapter \ref{chp:propagation}, we replace the atomic coherence factor by an
+    integral over the convolution of $P(\Delta)$ with the atomic coherence now a
+    function of detuning, so that
+
     \begin{subequations}\label{eqn:mwe_svea_doppler}
     \begin{align}
       \frac{\partial \Omega_p}{\partial \zeta}(\zeta, \tau) = \ii N g_{01} 
@@ -242,6 +245,31 @@
       \Delta.
     \end{align}
     \end{subequations}
+
+    In figure \ref{fig:sim_0703_temp_210C_build0b_fields} we again show the
+    evolution of the real part of the complex Rabi frequencies $\Omega_p$ and
+    $\Omega_c$ for the model in figure
+    \ref{fig:sim_0703_temp_210C_build0_fields}, but this time with the
+    inclusion of the inhomogeneous broadening described for the vapour
+    temperature of $\unit[230]{\textrm{\textdegree C}}$.
+
+    \begin{figure}[h]
+      \includegraphics[width=\linewidth]{figs/06_simultons/mb_vee2g_build0b_15c_130p_0330t_230C_sb50_120vel000_00_002um_fig2.pdf}
+      \caption{
+      Real parts of the complex Rabi frequencies (in units of $\Gamma$)
+      $\Omega_{p}$ (top) and  $\Omega_{c}$ (bottom) in the simulated
+      pulse/\textsc{cw} scheme for the parameter set in figure
+      \ref{fig:sim_0703_temp_210C_build0_fields}, with the inclusion of Doppler
+      broadening for a vapour temperature of $\unit[230]{\textrm{\textdegree
+      C}}$.
+      }
+      \label{fig:sim_0703_temp_210C_build0b_fields}
+    \end{figure}
+
+    We see that the peaks in the probe response are reduced somewhat from those
+    without this motional effect (figure
+    \ref{fig:sim_0703_temp_210C_build0_fields}) and are somewhat broadened now
+    that the atoms no longer all interact with a field perfectly on resonance.
 
   \subsection{Collision Dephasing}
 
@@ -287,24 +315,27 @@
       \caption{
       Real parts of the complex Rabi frequencies (in units of $\Gamma$)
       $\Omega_{p}$ (top) and  $\Omega_{c}$ (bottom) in the simulated
-      pulse/\textsc{cw} scheme for the parameter set in figure
-      \ref{fig:sim_0703_temp_210C_build0_fields}, with the inclusion of motional
-      effects of Doppler and collision broadening.
+      pulse/\textsc{cw} scheme for the parameter set in figures
+      \ref{fig:sim_0703_temp_210C_build0_fields} and
+      \ref{fig:sim_0703_temp_210C_build0b_fields}, now with the inclusion of
+      collision broadening.
       }
       \label{fig:sim_0703_temp_210C_build2_fields}
     \end{figure}
 
     In figure \ref{fig:sim_0703_temp_210C_build2_fields} we again show the
     evolution of the real part of the complex Rabi frequencies $\Omega_p$ and
-    $\Omega_c$ for the model in figure
-    \ref{fig:sim_0703_temp_210C_build0_fields}, but this time with the inclusion
-    of the motional effects described. 
+    $\Omega_c$ for the model in figures
+    \ref{fig:sim_0703_temp_210C_build0_fields} and
+    \ref{fig:sim_0703_temp_210C_build0b_fields}, but this time with the addition
+    of both motional effects: Doppler broadening and collision broadening.
 
     We no longer see the level of amplification and splitting on the coupling
     pulse that we saw in figure \ref{fig:sim_0703_temp_210C_build0_fields}, with
-    the pulse maintaining its profile through the medium. The strong
-    amplification and attenuation on the \textsc{cw} probe field has also been
-    damped significantly, particularly on the second oscillation. The periods of
+    the pulse maintaining its profile through the medium. Whereas the effect of
+    the Doppler broadening was mostly seen in reducing the height of the inital
+    peak on the \textsc{cw} probe field, the inclusion of collisions has had
+    more of an effect in damping out the subsequent oscillations. The periods of
     attenuation return the field Rabi frequency to the level observed without
     the pulse over this distance.
 
@@ -340,8 +371,10 @@
     \begin{equation}\label{eqn:hf_branching}
       B_{F \rightarrow J'} = \frac{\sum_{F'} S_{F \rightarrow F'}}{2J' + 1}
     \end{equation}
-    where $J, F$ are the orbital and hyperfine angular momentum numbers for the ground state and $J', F'$ are those of the excited state, and the hyperfine strength factors $S_{F \rightarrow F'}$ are given
-    by\cite{Steck2001}
+
+    where $J, F$ are the orbital and hyperfine angular momentum numbers for the
+    ground state and $J', F'$ are those of the excited state, and the hyperfine
+    strength factors $S_{F \rightarrow F'}$ are given by\cite{Steck2001}
     \begin{equation}\label{eqn:strength_factor}
       S_{F \rightarrow F'} = (2F' + 1)(2J + 1)
         \begin{Bmatrix}
