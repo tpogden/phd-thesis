@@ -123,7 +123,7 @@
     evolution, such that
     \begin{equation}
       \label{eqn:twolevel_coh_master_eqn}
-      \frac{\dd \rho}{\dd t} = \ii \Omega \left( \rho_{00} - \rho_{11} \right) + \left( \ii \Delta - \frac{\Gamma}{2} \right) \rho_{10}.
+      \frac{\dd \rho_{01}}{\dd t} = \ii \Omega \left( \rho_{00} - \rho_{11} \right) + \left( \ii \Delta - \frac{\Gamma}{2} \right) \rho_{10}.
     \end{equation}
 
     In the case of weak field input on the medium, we may assume that we're in a
@@ -154,8 +154,8 @@
 
     The Gaussian pulsed input field is defined by
     \begin{equation}
-      \Omega(t) = \Omega_{0} \exp \left[ -4 \log 2 \left( \frac{t - t_0}{t_w}
-                              \right)^2 \right]
+      \Omega(t) = \Omega_{0} \exp \left[ -4 \left( \log 2 \right) \left( 
+                    \frac{t - t_0}{t_w} \right)^2 \right]
       \label{eqn:gaussian}
     \end{equation}
     where $\Omega_{0}$ is the peak input Rabi frequency, $t_0$ is the time at
@@ -171,11 +171,11 @@
     \begin{figure}
       \includegraphics[width=\linewidth]{figs/02_propagation/mb_two_solve_wp_t01_Ng0100_T0_vel0_D0_fig1.pdf}
       \caption{
-      The real part of the complex Rabi frequency $\Omega(z,t)$ showing the
-      simulated result of propagation of a weak pulse through a two-level
-      medium. (Inset \textsc{3d}) The field has Gaussian profile entering the
-      medium at $z=0$, with peak $\Omega_0 = \unit[2\pi\times10^{-3}]{\Gamma}$
-      and width $t_w =$~\unit[$0.1$]{$\tau$}.
+      The real part of the complex Rabi frequency $\Omega(z,t)$ (in $\Gamma$)
+      showing the simulated result of propagation of a weak pulse through a two-
+      level medium. (Inset \textsc{3d}) The field has Gaussian profile entering
+      the medium at $z=0$, with peak $\Omega_0 =
+      \unit[2\pi\times10^{-3}]{\Gamma}$ and width $t_w =$~\unit[$0.1$]{$\tau$}.
       }
       \label{fig:pulse_field}
     \end{figure}
@@ -304,9 +304,9 @@
       {figs/02_propagation/two_mb_solve_f03_fig1.pdf}
     \caption{
     Magnitude of the Fourier-transformed Rabi frequency $\lvert \Omega(z,\omega)
-    \rvert$, showing propagation of the field through the medium in the
-    frequency domain during the simulation. The input boundary condition field
-    profile at $z=0$ is the sinc function shown in figure
+    \rvert$ (in $\Gamma$), showing propagation of the field through the medium
+    in the frequency domain during the simulation. The input boundary condition
+    field profile at $z=0$ is the sinc function shown in figure
     \ref{fig:sinc_time_freq}. The medium is defined with a length $L$ and number
     density $N$ such that  $Ng = \unit[2\pi~1]{\Gamma /L}$.
     }
@@ -419,7 +419,7 @@
     absorptive index.
 
     We also plot the transmission and absorption index of the transmission and
-    absoprtion as a function of frequency for the wide-spectrum sinc pulse. The
+    absorption as a function of frequency for the wide-spectrum sinc pulse. The
     close agreement tells us that the short pulse's propagation is as if it were
     composed of many monochromatic frequency components interacting
     independently with the medium. In the linear regime, the solution is a
@@ -433,7 +433,8 @@
 
     To account for thermal atoms, we must include the Doppler effect by means of
     the average over detunings described by the integral in equation
-    \ref{eqn:polarisation_doppler}. The thermal lineshape function may then be expressed as
+    (\ref{eqn:polarisation_doppler}). The thermal lineshape function may then be
+    expressed as
     \begin{equation}
       s(\Delta) = \int_{-\infty}^\infty h(\Delta - k v) \times f(\Delta) \dd v
     \end{equation}
