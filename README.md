@@ -5,7 +5,7 @@
 
 ## Latest Release
 
-- https://github.com/tommyogden/phd-thesis/releases/download/v1.0/thesis.pdf (10MB)
+- [thesis_thomasogden_v1.1.pdf](https://github.com/tommyogden/phd-thesis/releases/download/v1.1/thesis_thomasogden_v1.1.pdf) (11MB)
 
 ## Abstract
 
